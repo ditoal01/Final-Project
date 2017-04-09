@@ -33,7 +33,7 @@ Public Class frmAddInventory
         txtUPCNumber.MaxLength = 12
     End Sub
 
-    Private Sub txtInventory_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtInventory.KeyPress
+    Private Sub txtInventory_KeyPress(sender As Object, e As KeyPressEventArgs)
         errorProvider.Clear()
         'Enables control keys
         If Char.IsControl(e.KeyChar) Then Exit Sub
