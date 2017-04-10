@@ -23,3 +23,5 @@ C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\
 C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.frmUpdateDepartment.resources
 C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.frmViewDepartments.resources
 C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.frmOrderItem.resources
+C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\InventoryManagementSystem\bin\Debug\InventoryManagementSystem.mdf
+C:\Users\andrea\Documents\Visual Studio 2015\Projects\InventoryManagementSystem\InventoryManagementSystem\bin\Debug\InventoryManagementSystem_log.ldf

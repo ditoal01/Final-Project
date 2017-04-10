@@ -37,17 +37,26 @@ Partial Class frmViewAllInventory
         '
         'dgvDepartment
         '
+        Me.dgvDepartment.AllowUserToAddRows = False
+        Me.dgvDepartment.AllowUserToDeleteRows = False
+        Me.dgvDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvDepartment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dgvDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDepartment.Location = New System.Drawing.Point(377, 36)
+        Me.dgvDepartment.Location = New System.Drawing.Point(176, 32)
+        Me.dgvDepartment.MultiSelect = False
         Me.dgvDepartment.Name = "dgvDepartment"
-        Me.dgvDepartment.Size = New System.Drawing.Size(314, 398)
+        Me.dgvDepartment.ReadOnly = True
+        Me.dgvDepartment.RowHeadersVisible = False
+        Me.dgvDepartment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvDepartment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvDepartment.Size = New System.Drawing.Size(632, 398)
         Me.dgvDepartment.TabIndex = 20
         Me.dgvDepartment.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(388, 457)
+        Me.Label1.Location = New System.Drawing.Point(348, 457)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(138, 13)
         Me.Label1.TabIndex = 21
@@ -56,14 +65,14 @@ Partial Class frmViewAllInventory
         'cboDepartment
         '
         Me.cboDepartment.FormattingEnabled = True
-        Me.cboDepartment.Location = New System.Drawing.Point(560, 457)
+        Me.cboDepartment.Location = New System.Drawing.Point(520, 457)
         Me.cboDepartment.Name = "cboDepartment"
         Me.cboDepartment.Size = New System.Drawing.Size(121, 21)
         Me.cboDepartment.TabIndex = 4
         '
         'btnViewItem
         '
-        Me.btnViewItem.Location = New System.Drawing.Point(144, 56)
+        Me.btnViewItem.Location = New System.Drawing.Point(24, 32)
         Me.btnViewItem.Name = "btnViewItem"
         Me.btnViewItem.Size = New System.Drawing.Size(124, 33)
         Me.btnViewItem.TabIndex = 0
@@ -72,7 +81,7 @@ Partial Class frmViewAllInventory
         '
         'btnUpdateItem
         '
-        Me.btnUpdateItem.Location = New System.Drawing.Point(144, 120)
+        Me.btnUpdateItem.Location = New System.Drawing.Point(24, 96)
         Me.btnUpdateItem.Name = "btnUpdateItem"
         Me.btnUpdateItem.Size = New System.Drawing.Size(124, 33)
         Me.btnUpdateItem.TabIndex = 1
@@ -81,7 +90,7 @@ Partial Class frmViewAllInventory
         '
         'btnDeleteItem
         '
-        Me.btnDeleteItem.Location = New System.Drawing.Point(144, 184)
+        Me.btnDeleteItem.Location = New System.Drawing.Point(24, 160)
         Me.btnDeleteItem.Name = "btnDeleteItem"
         Me.btnDeleteItem.Size = New System.Drawing.Size(124, 33)
         Me.btnDeleteItem.TabIndex = 2
@@ -90,7 +99,7 @@ Partial Class frmViewAllInventory
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(144, 248)
+        Me.btnCancel.Location = New System.Drawing.Point(24, 224)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(124, 33)
         Me.btnCancel.TabIndex = 3

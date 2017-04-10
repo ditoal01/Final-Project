@@ -2,6 +2,9 @@
 Option Strict On
 
 Public Class frmViewInventory
+
+    Private mItems As New Item
+
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
@@ -26,4 +29,50 @@ Public Class frmViewInventory
         'Close form when inactive
         Me.Close()
     End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim id As Integer
+        id = CInt(txtLookup.Text)
+        search(id)
+        'lblItemNumber.Text = mItems.Items.Rows(0)(0).ToString()
+    End Sub
+
+    Private Sub frmViewInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Public Sub input(ByVal pId As Integer)
+        txtLookup.Text = pId.ToString
+        search(pId)
+    End Sub
+
+    Private Function search(ByVal pId As Integer) As Boolean
+
+        Dim row As InventoryManagementSystemDataSet.ItemRow
+        Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
+        Dim row3 As InventoryManagementSystemDataSet.SaleRow
+
+        row = mItems.FindItem(pId)
+        lblItemNumber.Text = row.Id.ToString
+        lblUPCNumber.Text = row.upc.ToString
+        lblDescription.Text = row.description.ToString
+        lblDepartmentNumber.Text = row.dept.ToString
+        lblInventory.Text = row.inventory.ToString
+
+        row2 = mItems.FindDetail(pId)
+        lblShelfCap.Text = row2.shelfcap.ToString
+        lblCaseQuanity.Text = row2.casequanity.ToString
+        lblSalesRate.Text = row2.rate.ToString
+        lblShelfTotal.Text = row2.invshelf.ToString
+        lblBackroomTotal.Text = row2.invback.ToString
+
+        row3 = mItems.FindSale(pId)
+        lblSalePrice.Text = row3.price.ToString("c")
+        lblCost.Text = row3.cost.ToString("c")
+        lblMarkUp.Text = mItems.Markup(row3.price, row3.cost).ToString("P")
+
+        Return True
+
+    End Function
+
 End Class

@@ -3,13 +3,17 @@ Option Strict On
 
 Public Class frmViewAllInventory
 
+    Private selectedItem As String
     Private Sub btnViewItem_Click(sender As Object, e As EventArgs) Handles btnViewItem.Click
+
         'Create view inventory form
         Dim viewInventory As New frmViewInventory
         'set view inventory MDI parent to parent form
         viewInventory.MdiParent = Me.ParentForm
         viewInventory.WindowState = FormWindowState.Maximized
         viewInventory.Show()
+
+        viewInventory.input(CInt(selectedItem))
     End Sub
 
     Private Sub btnUpdateItem_Click(sender As Object, e As EventArgs) Handles btnUpdateItem.Click
@@ -42,5 +46,17 @@ Public Class frmViewAllInventory
     Private Sub frmViewAllInventory_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         'Close form when inactive
         Me.Close()
+    End Sub
+
+    Private Sub frmViewAllInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim mItems As New Item
+        dgvDepartment.DataSource = mItems.Items
+        selectedItem = dgvDepartment.Item(0, 0).Value.ToString
+    End Sub
+
+    Private Sub dgvDepartment_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartment.CellClick
+        Dim i As Integer
+        i = e.RowIndex
+        selectedItem = dgvDepartment.Item(0, i).Value.ToString
     End Sub
 End Class
