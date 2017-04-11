@@ -2,6 +2,10 @@
 Option Strict On
 
 Public Class frmUpdateInventory
+    Private saleInventory, backInventory As Integer
+    Private mItems As New Item
+    Private mDept As New Department
+
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
@@ -33,7 +37,7 @@ Public Class frmUpdateInventory
         txtUPCNumber.MaxLength = 12
     End Sub
 
-    Private Sub txtInventory_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtInventory.KeyPress
+    Private Sub txtInventory_KeyPress(sender As Object, e As KeyPressEventArgs)
         errorProvider.Clear()
         'Enables control keys
         If Char.IsControl(e.KeyChar) Then Exit Sub
@@ -107,5 +111,63 @@ Public Class frmUpdateInventory
     Private Sub frmUpdateInventory_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         'Close form when inactive
         Me.Close()
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim total As Integer
+        saleInventory = CInt(txtShelfTotal.Text)
+        backInventory = CInt(txtBackroomTotal.Text)
+        total = saleInventory + backInventory
+        lblInventory.Text = total.ToString
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim id As Integer
+        id = CInt(txtLookup.Text)
+        Search(id)
+
+    End Sub
+
+    Private Function Search(ByVal pId As Integer) As Boolean
+
+        Dim row As InventoryManagementSystemDataSet.ItemRow
+        Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
+        Dim row3 As InventoryManagementSystemDataSet.SaleRow
+
+        For Each grp As GroupBox In Controls.OfType(Of GroupBox)
+            grp.Enabled = True
+        Next
+
+        row = mItems.FindItem(pId)
+        txtItemNumber.Text = row.Id.ToString
+        txtUPCNumber.Text = row.upc.ToString
+        txtDescription.Text = row.description.ToString
+        lblInventory.Text = row.inventory.ToString
+        cboDepartment.SelectedValue = row.dept
+
+        row2 = mItems.FindDetail(pId)
+        txtShelfCap.Text = row2.shelfcap.ToString
+        txtCaseQuanity.Text = row2.casequanity.ToString
+        txtSalesRate.Text = row2.rate.ToString
+        txtShelfTotal.Text = row2.invshelf.ToString
+        txtBackroomTotal.Text = row2.invback.ToString
+
+        row3 = mItems.FindSale(pId)
+        txtSalePrice.Text = row3.price.ToString("c")
+        txtCost.Text = row3.cost.ToString("c")
+        lblMarkUp.Text = mItems.Markup(row3.price, row3.cost).ToString("P")
+
+        Return True
+    End Function
+
+    Public Sub input(ByVal pId As Integer)
+        txtLookup.Text = pId.ToString
+        Search(pId)
+    End Sub
+
+    Private Sub frmUpdateInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboDepartment.DataSource = mDept.Dept()
+        cboDepartment.DisplayMember = "dept"
+        cboDepartment.ValueMember = "dept"
     End Sub
 End Class

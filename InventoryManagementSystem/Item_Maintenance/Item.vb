@@ -41,6 +41,19 @@ Public Class Item
         Return table.FindById(pId)
     End Function
 
+    Public Function FindUPC(ByVal pUPC As Integer) As InventoryManagementSystemDataSet.ItemRow
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable
+        Dim pRow As InventoryManagementSystemDataSet.ItemRow
+        table = adapter.GetData()
+        table.DefaultView.RowFilter = "upc = " & pUPC
+        Dim row As DataRow = table.Rows.Find(pUPC)
+        If row IsNot Nothing Then
+            MessageBox.Show(row.Item("Id").ToString & "Found")
+        End If
+        Return table.FindById(130001)
+
+    End Function
+
     Public Function FindDetail(ByVal pId As Integer) As InventoryManagementSystemDataSet.ItemDetailRow
         Dim table As InventoryManagementSystemDataSet.ItemDetailDataTable
         table = adapter2.GetData()

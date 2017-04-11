@@ -38,7 +38,6 @@ Partial Class frmUpdateInventory
         Me.txtSalesRate = New System.Windows.Forms.TextBox()
         Me.txtCaseQuanity = New System.Windows.Forms.TextBox()
         Me.txtShelfCap = New System.Windows.Forms.TextBox()
-        Me.txtInventory = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -58,13 +57,14 @@ Partial Class frmUpdateInventory
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.txtMarkUp = New System.Windows.Forms.TextBox()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.txtSalePrice = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.lblInventory = New System.Windows.Forms.Label()
+        Me.lblMarkUp = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -150,6 +150,7 @@ Partial Class frmUpdateInventory
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblInventory)
         Me.GroupBox2.Controls.Add(Me.txtBackroomTotal)
         Me.GroupBox2.Controls.Add(Me.txtShelfTotal)
         Me.GroupBox2.Controls.Add(Me.Label14)
@@ -157,7 +158,6 @@ Partial Class frmUpdateInventory
         Me.GroupBox2.Controls.Add(Me.txtSalesRate)
         Me.GroupBox2.Controls.Add(Me.txtCaseQuanity)
         Me.GroupBox2.Controls.Add(Me.txtShelfCap)
-        Me.GroupBox2.Controls.Add(Me.txtInventory)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label12)
@@ -230,14 +230,6 @@ Partial Class frmUpdateInventory
         Me.txtShelfCap.Name = "txtShelfCap"
         Me.txtShelfCap.Size = New System.Drawing.Size(100, 20)
         Me.txtShelfCap.TabIndex = 1
-        '
-        'txtInventory
-        '
-        Me.txtInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtInventory.Location = New System.Drawing.Point(176, 32)
-        Me.txtInventory.Name = "txtInventory"
-        Me.txtInventory.Size = New System.Drawing.Size(100, 20)
-        Me.txtInventory.TabIndex = 0
         '
         'Label5
         '
@@ -416,7 +408,7 @@ Partial Class frmUpdateInventory
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.txtMarkUp)
+        Me.GroupBox4.Controls.Add(Me.lblMarkUp)
         Me.GroupBox4.Controls.Add(Me.txtCost)
         Me.GroupBox4.Controls.Add(Me.txtSalePrice)
         Me.GroupBox4.Controls.Add(Me.Label18)
@@ -431,14 +423,6 @@ Partial Class frmUpdateInventory
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Sales Details"
         '
-        'txtMarkUp
-        '
-        Me.txtMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMarkUp.Location = New System.Drawing.Point(192, 96)
-        Me.txtMarkUp.Name = "txtMarkUp"
-        Me.txtMarkUp.Size = New System.Drawing.Size(100, 20)
-        Me.txtMarkUp.TabIndex = 2
-        '
         'txtCost
         '
         Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -449,7 +433,6 @@ Partial Class frmUpdateInventory
         '
         'txtSalePrice
         '
-        Me.txtSalePrice.Enabled = False
         Me.txtSalePrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSalePrice.Location = New System.Drawing.Point(192, 32)
         Me.txtSalePrice.Name = "txtSalePrice"
@@ -489,6 +472,24 @@ Partial Class frmUpdateInventory
         'errorProvider
         '
         Me.errorProvider.ContainerControl = Me
+        '
+        'lblInventory
+        '
+        Me.lblInventory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInventory.Location = New System.Drawing.Point(176, 32)
+        Me.lblInventory.Name = "lblInventory"
+        Me.lblInventory.Size = New System.Drawing.Size(100, 20)
+        Me.lblInventory.TabIndex = 18
+        '
+        'lblMarkUp
+        '
+        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
+        Me.lblMarkUp.Name = "lblMarkUp"
+        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
+        Me.lblMarkUp.TabIndex = 18
         '
         'frmUpdateInventory
         '
@@ -532,7 +533,6 @@ Partial Class frmUpdateInventory
     Friend WithEvents txtSalesRate As TextBox
     Friend WithEvents txtCaseQuanity As TextBox
     Friend WithEvents txtShelfCap As TextBox
-    Friend WithEvents txtInventory As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label12 As Label
@@ -556,11 +556,12 @@ Partial Class frmUpdateInventory
     Friend WithEvents btnCancel As Button
     Friend WithEvents cboDepartment As ComboBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents txtMarkUp As TextBox
     Friend WithEvents txtCost As TextBox
     Friend WithEvents txtSalePrice As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents errorProvider As ErrorProvider
+    Friend WithEvents lblInventory As Label
+    Friend WithEvents lblMarkUp As Label
 End Class

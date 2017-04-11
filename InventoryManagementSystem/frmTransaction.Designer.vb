@@ -48,9 +48,9 @@ Partial Class frmTransaction
         'lstRegister
         '
         Me.lstRegister.FormattingEnabled = True
-        Me.lstRegister.Location = New System.Drawing.Point(479, 72)
+        Me.lstRegister.Location = New System.Drawing.Point(344, 72)
         Me.lstRegister.Name = "lstRegister"
-        Me.lstRegister.Size = New System.Drawing.Size(223, 277)
+        Me.lstRegister.Size = New System.Drawing.Size(456, 277)
         Me.lstRegister.TabIndex = 5
         Me.lstRegister.TabStop = False
         '
@@ -86,7 +86,7 @@ Partial Class frmTransaction
         Me.GroupBox1.Controls.Add(Me.btnAdd)
         Me.GroupBox1.Controls.Add(Me.txtAddItem)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(121, 72)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 72)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(322, 74)
         Me.GroupBox1.TabIndex = 0
@@ -104,7 +104,7 @@ Partial Class frmTransaction
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(121, 171)
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 171)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(322, 180)
         Me.GroupBox2.TabIndex = 5

@@ -4,6 +4,8 @@ Option Strict On
 Public Class frmViewAllInventory
 
     Private selectedItem As String
+    Private mDept As New Department
+
     Private Sub btnViewItem_Click(sender As Object, e As EventArgs) Handles btnViewItem.Click
 
         'Create view inventory form
@@ -23,6 +25,8 @@ Public Class frmViewAllInventory
         updateInventoryForm.MdiParent = Me.ParentForm
         updateInventoryForm.WindowState = FormWindowState.Maximized
         updateInventoryForm.Show()
+
+        updateInventoryForm.input(CInt(selectedItem))
     End Sub
 
     Private Sub btnDeleteItem_Click(sender As Object, e As EventArgs) Handles btnDeleteItem.Click
@@ -32,6 +36,8 @@ Public Class frmViewAllInventory
         deleteInventory.MdiParent = Me.ParentForm
         deleteInventory.WindowState = FormWindowState.Maximized
         deleteInventory.Show()
+
+        deleteInventory.input(CInt(selectedItem))
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -52,6 +58,10 @@ Public Class frmViewAllInventory
         Dim mItems As New Item
         dgvDepartment.DataSource = mItems.Items
         selectedItem = dgvDepartment.Item(0, 0).Value.ToString
+        cboDepartment.DataSource = mDept.Dept()
+        cboDepartment.DisplayMember = "dept"
+        cboDepartment.ValueMember = "dept"
+
     End Sub
 
     Private Sub dgvDepartment_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartment.CellClick
