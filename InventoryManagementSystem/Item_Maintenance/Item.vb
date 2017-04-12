@@ -35,24 +35,7 @@ Public Class Item
 
     End Function
 
-    Public Function FindItem(ByVal pId As Integer) As InventoryManagementSystemDataSet.ItemRow
-        Dim table As InventoryManagementSystemDataSet.ItemDataTable
-        table = adapter.GetData()
-        Return table.FindById(pId)
-    End Function
 
-    Public Function FindUPC(ByVal pUPC As Integer) As InventoryManagementSystemDataSet.ItemRow
-        Dim table As InventoryManagementSystemDataSet.ItemDataTable
-        Dim pRow As InventoryManagementSystemDataSet.ItemRow
-        table = adapter.GetData()
-        table.DefaultView.RowFilter = "upc = " & pUPC
-        Dim row As DataRow = table.Rows.Find(pUPC)
-        If row IsNot Nothing Then
-            MessageBox.Show(row.Item("Id").ToString & "Found")
-        End If
-        Return table.FindById(130001)
-
-    End Function
 
     Public Function FindDetail(ByVal pId As Integer) As InventoryManagementSystemDataSet.ItemDetailRow
         Dim table As InventoryManagementSystemDataSet.ItemDetailDataTable
@@ -70,5 +53,23 @@ Public Class Item
         Dim grossProfitMargin As Decimal = pPrice - pCost
         Return grossProfitMargin / pCost
     End Function
+
+    Public Function FindItem(ByVal pId As Integer) As InventoryManagementSystemDataSet.ItemRow
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable
+        table = adapter.GetData()
+        Return table.FindById(pId)
+    End Function
+
+    Public Function FindUPC(ByVal pUPC As Integer) As InventoryManagementSystemDataSet.ItemRow
+        Dim row, rowUPC As InventoryManagementSystemDataSet.ItemRow
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable = adapter.GetData()
+        For Each row In table.Rows
+            If row.Item(1).Equals(pUPC) Then
+                rowUPC = row
+            End If
+        Next
+        Return rowUPC
+    End Function
+
 
 End Class
