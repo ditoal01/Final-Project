@@ -71,4 +71,24 @@ Public Class frmDeleteInventory
         txtLookup.Text = pId.ToString
         search(pId)
     End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+
+        If mItems.Delete(CInt(lblItemNumber.Text)) Then
+            ' clear()
+        Else
+            MessageBox.Show("Unable to delete the item")
+        End If
+    End Sub
+
+    Private Sub clear()
+        For Each grp As GroupBox In Controls.OfType(Of GroupBox)
+            For Each lbl As Label In grp.Controls.OfType(Of Label)
+                lbl.Text = String.Empty
+            Next
+        Next
+        txtLookup.Clear()
+    End Sub
+
 End Class

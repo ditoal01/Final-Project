@@ -17,10 +17,14 @@ Public Class Item
     End Property
 
     Public Function Insert(ByVal pId As Integer, ByVal pUPC As String, ByVal pDept As Integer,
-                           ByVal pDescription As String, ByVal pInventory As Integer) As Boolean
+                           ByVal pDescription As String, ByVal pInventory As Integer, ByVal pCap As Integer,
+                           ByVal pCase As Integer, ByVal pSaleRate As Integer, ByVal pShelf As Integer,
+                           ByVal pBack As Integer, ByVal pSale As Decimal, ByVal pCost As Decimal) As Boolean
         Dim result As Boolean = False
         Try
-            If adapter.Insert(pId, pUPC, pDept, pDescription, pInventory) > 0 Then
+            If adapter.Insert(pId, pUPC, pDept, pDescription, pInventory) > 0 And
+                adapter2.Insert(pId, pCap, pCase, pShelf, pBack, pSaleRate) > 0 And
+                adapter3.Insert(pId, pSale, pCost) > 0 Then
                 LastError = "Item added to database"
                 result = True
             Else
@@ -35,6 +39,27 @@ Public Class Item
 
     End Function
 
+    Public Function Update(ByVal pId As Integer, ByVal pUPC As String, ByVal pDept As Integer,
+                           ByVal pDescription As String, ByVal pInventory As Integer, ByVal pCap As Integer,
+                           ByVal pCase As Integer, ByVal pSaleRate As Integer, ByVal pShelf As Integer,
+                           ByVal pBack As Integer, ByVal pSale As Decimal, ByVal pCost As Decimal) As Boolean
+        LastError = String.Empty
+        Try
+            adapter.Update(pId, pUPC, pDept, pDescription, pInventory)
+            adapter2.Update(pId, pCap, pCase, pShelf, pBack, pSaleRate)
+            adapter3.Update(pId, pSale, pCost)
+            Return True
+
+        Catch ex As Exception
+            LastError = ex.Message
+            Return False
+        End Try
+    End Function
+
+    Public Function Delete(ByVal pId As Integer) As Boolean
+        Dim rowsAffected As Integer = adapter.Delete(pId)
+        Return rowsAffected > 0
+    End Function
 
 
     Public Function FindDetail(ByVal pId As Integer) As InventoryManagementSystemDataSet.ItemDetailRow

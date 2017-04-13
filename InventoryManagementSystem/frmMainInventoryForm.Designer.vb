@@ -43,7 +43,7 @@ Partial Class frmMainInventoryForm
         Me.OrderItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.StatusStrip()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -179,16 +179,16 @@ Partial Class frmMainInventoryForm
         'TransactionToolStripMenuItem
         '
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
-        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
         '
-        'StatusStrip1
+        'lblStatus
         '
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 525)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(835, 22)
-        Me.StatusStrip1.TabIndex = 3
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.lblStatus.Location = New System.Drawing.Point(0, 525)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(835, 22)
+        Me.lblStatus.TabIndex = 3
+        Me.lblStatus.Text = "StatusStrip1"
         '
         'frmMainInventoryForm
         '
@@ -196,7 +196,7 @@ Partial Class frmMainInventoryForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(835, 547)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
@@ -220,7 +220,7 @@ Partial Class frmMainInventoryForm
     Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TransactionToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As StatusStrip
     Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RecievingToolStripMenuItem As ToolStripMenuItem

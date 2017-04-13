@@ -119,6 +119,15 @@ Public Class frmUpdateInventory
         backInventory = CInt(txtBackroomTotal.Text)
         total = saleInventory + backInventory
         lblInventory.Text = total.ToString
+
+        If mItems.Update(CInt(txtItemNumber.Text), txtUPCNumber.Text, CInt(cboDepartment.SelectedIndex.ToString),
+                      txtDescription.Text, total, CInt(txtShelfCap.Text), CInt(txtCaseQuanity.Text),
+                      CInt(txtSalesRate.Text), CInt(txtShelfTotal.Text), CInt(txtBackroomTotal.Text),
+                      CDec(txtSalePrice.Text), CDec(txtCost.Text)) Then
+        Else
+            Item.LastError = "Cannot update the Appointment."
+        End If
+
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

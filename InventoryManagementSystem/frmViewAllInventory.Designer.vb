@@ -39,9 +39,12 @@ Partial Class frmViewAllInventory
         '
         Me.dgvDepartment.AllowUserToAddRows = False
         Me.dgvDepartment.AllowUserToDeleteRows = False
+        Me.dgvDepartment.AllowUserToResizeColumns = False
+        Me.dgvDepartment.AllowUserToResizeRows = False
         Me.dgvDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDepartment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.dgvDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDepartment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvDepartment.Location = New System.Drawing.Point(176, 32)
         Me.dgvDepartment.MultiSelect = False
         Me.dgvDepartment.Name = "dgvDepartment"

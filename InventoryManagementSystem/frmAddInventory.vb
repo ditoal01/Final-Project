@@ -2,6 +2,10 @@
 Option Strict On
 
 Public Class frmAddInventory
+
+    Private mItems As New Item
+    Private mDept As New Department
+
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
@@ -43,7 +47,7 @@ Public Class frmAddInventory
         End If
     End Sub
 
-    Private Sub txtSelfCap_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSelfCap.KeyPress
+    Private Sub txtSelfCap_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtShelfCap.KeyPress
         errorProvider.Clear()
         'Enables control keys
         If Char.IsControl(e.KeyChar) Then Exit Sub
@@ -86,5 +90,23 @@ Public Class frmAddInventory
     Private Sub frmAddInventory_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         'Close form when inactive
         Me.Close()
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim itmNum As Integer = 130007
+        txtItemNumber.Text = itmNum.ToString
+
+        Dim total As Integer = CInt(txtShelfTotal.Text) + CInt(txtBackroomTotal.Text)
+
+        mItems.Insert(itmNum, txtUPCNumber.Text, CInt(cboDepartment.SelectedIndex.ToString),
+                      txtDescription.Text, total, CInt(txtShelfCap.Text), CInt(txtCaseQuanity.Text),
+                      CInt(txtSalesRate.Text), CInt(txtShelfTotal.Text), CInt(txtBackroomTotal.Text),
+                      CDec(txtSalePrice.Text), CDec(txtCost.Text))
+    End Sub
+
+    Private Sub frmAddInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboDepartment.DataSource = mDept.Dept
+        cboDepartment.DisplayMember = "dept"
+        cboDepartment.ValueMember = "dept"
     End Sub
 End Class

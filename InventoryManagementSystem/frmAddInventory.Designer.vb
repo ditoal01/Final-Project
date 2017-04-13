@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddInventory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddInventory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -32,12 +32,13 @@ Partial Class frmAddInventory
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblInventory = New System.Windows.Forms.Label()
         Me.txtSalesRate = New System.Windows.Forms.TextBox()
         Me.txtShelfTotal = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtCaseQuanity = New System.Windows.Forms.TextBox()
-        Me.txtSelfCap = New System.Windows.Forms.TextBox()
+        Me.txtShelfCap = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -53,14 +54,14 @@ Partial Class frmAddInventory
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.lblMarkUp = New System.Windows.Forms.Label()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.txtSalePrice = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.lblInventory = New System.Windows.Forms.Label()
-        Me.lblMarkUp = New System.Windows.Forms.Label()
+        Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class frmAddInventory
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(120, 32)
         Me.btnUpdate.TabIndex = 4
-        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.Text = "Add"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'GroupBox3
@@ -154,13 +155,14 @@ Partial Class frmAddInventory
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.txtBackroomTotal)
         Me.GroupBox2.Controls.Add(Me.lblInventory)
         Me.GroupBox2.Controls.Add(Me.txtSalesRate)
         Me.GroupBox2.Controls.Add(Me.txtShelfTotal)
         Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.txtCaseQuanity)
-        Me.GroupBox2.Controls.Add(Me.txtSelfCap)
+        Me.GroupBox2.Controls.Add(Me.txtShelfCap)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label12)
@@ -168,10 +170,19 @@ Partial Class frmAddInventory
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(80, 208)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(304, 192)
+        Me.GroupBox2.Size = New System.Drawing.Size(304, 224)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Inventory Details"
+        '
+        'lblInventory
+        '
+        Me.lblInventory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInventory.Location = New System.Drawing.Point(176, 32)
+        Me.lblInventory.Name = "lblInventory"
+        Me.lblInventory.Size = New System.Drawing.Size(100, 20)
+        Me.lblInventory.TabIndex = 28
         '
         'txtSalesRate
         '
@@ -193,7 +204,7 @@ Partial Class frmAddInventory
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(40, 214)
+        Me.Label14.Location = New System.Drawing.Point(32, 192)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(85, 13)
         Me.Label14.TabIndex = 27
@@ -217,13 +228,13 @@ Partial Class frmAddInventory
         Me.txtCaseQuanity.Size = New System.Drawing.Size(100, 20)
         Me.txtCaseQuanity.TabIndex = 2
         '
-        'txtSelfCap
+        'txtShelfCap
         '
-        Me.txtSelfCap.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSelfCap.Location = New System.Drawing.Point(176, 64)
-        Me.txtSelfCap.Name = "txtSelfCap"
-        Me.txtSelfCap.Size = New System.Drawing.Size(100, 20)
-        Me.txtSelfCap.TabIndex = 1
+        Me.txtShelfCap.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtShelfCap.Location = New System.Drawing.Point(176, 64)
+        Me.txtShelfCap.Name = "txtShelfCap"
+        Me.txtShelfCap.Size = New System.Drawing.Size(100, 20)
+        Me.txtShelfCap.TabIndex = 1
         '
         'Label5
         '
@@ -382,6 +393,15 @@ Partial Class frmAddInventory
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Sales Details"
         '
+        'lblMarkUp
+        '
+        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
+        Me.lblMarkUp.Name = "lblMarkUp"
+        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
+        Me.lblMarkUp.TabIndex = 16
+        '
         'txtCost
         '
         Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -432,23 +452,13 @@ Partial Class frmAddInventory
         '
         Me.errorProvider.ContainerControl = Me
         '
-        'lblInventory
+        'txtBackroomTotal
         '
-        Me.lblInventory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInventory.Location = New System.Drawing.Point(176, 32)
-        Me.lblInventory.Name = "lblInventory"
-        Me.lblInventory.Size = New System.Drawing.Size(100, 20)
-        Me.lblInventory.TabIndex = 28
-        '
-        'lblMarkUp
-        '
-        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
-        Me.lblMarkUp.Name = "lblMarkUp"
-        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
-        Me.lblMarkUp.TabIndex = 16
+        Me.txtBackroomTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBackroomTotal.Location = New System.Drawing.Point(176, 192)
+        Me.txtBackroomTotal.Name = "txtBackroomTotal"
+        Me.txtBackroomTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtBackroomTotal.TabIndex = 29
         '
         'frmAddInventory
         '
@@ -487,7 +497,7 @@ Partial Class frmAddInventory
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtCaseQuanity As TextBox
-    Friend WithEvents txtSelfCap As TextBox
+    Friend WithEvents txtShelfCap As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label12 As Label
@@ -515,4 +525,5 @@ Partial Class frmAddInventory
     Friend WithEvents errorProvider As ErrorProvider
     Friend WithEvents lblInventory As Label
     Friend WithEvents lblMarkUp As Label
+    Friend WithEvents txtBackroomTotal As TextBox
 End Class

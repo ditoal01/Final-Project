@@ -67,6 +67,7 @@ Public Class frmViewAllInventory
     Private Sub dgvDepartment_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartment.CellClick
         Dim i As Integer
         i = e.RowIndex
+
         selectedItem = dgvDepartment.Item(0, i).Value.ToString
     End Sub
 End Class
