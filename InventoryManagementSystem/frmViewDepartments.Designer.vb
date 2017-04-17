@@ -42,9 +42,14 @@ Partial Class frmViewDepartments
         '
         'dgvDepartmentList
         '
+        Me.dgvDepartmentList.AllowUserToAddRows = False
+        Me.dgvDepartmentList.AllowUserToDeleteRows = False
+        Me.dgvDepartmentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDepartmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDepartmentList.Location = New System.Drawing.Point(296, 88)
         Me.dgvDepartmentList.Name = "dgvDepartmentList"
+        Me.dgvDepartmentList.ReadOnly = True
+        Me.dgvDepartmentList.RowHeadersVisible = False
         Me.dgvDepartmentList.Size = New System.Drawing.Size(264, 272)
         Me.dgvDepartmentList.TabIndex = 1
         Me.dgvDepartmentList.TabStop = False

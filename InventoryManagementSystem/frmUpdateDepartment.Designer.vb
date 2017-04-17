@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmUpdateDepartment
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,16 @@ Partial Class frmUpdateDepartment
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.cboSelectDepartment = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtChange = New System.Windows.Forms.TextBox()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtDescription = New System.Windows.Forms.TextBox()
         CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -68,25 +68,25 @@ Partial Class frmUpdateDepartment
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(240, 192)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 13)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "Change Department"
-        '
-        'txtChange
-        '
-        Me.txtChange.Location = New System.Drawing.Point(448, 192)
-        Me.txtChange.Name = "txtChange"
-        Me.txtChange.Size = New System.Drawing.Size(100, 20)
-        Me.txtChange.TabIndex = 1
-        '
         'errorProvider
         '
         Me.errorProvider.ContainerControl = Me
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(240, 176)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "Change Description"
+        '
+        'txtDescription
+        '
+        Me.txtDescription.Location = New System.Drawing.Point(448, 176)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(100, 20)
+        Me.txtDescription.TabIndex = 14
         '
         'frmUpdateDepartment
         '
@@ -94,8 +94,8 @@ Partial Class frmUpdateDepartment
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 503)
         Me.ControlBox = False
-        Me.Controls.Add(Me.txtChange)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtDescription)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cboSelectDepartment)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCancel)
@@ -112,7 +112,7 @@ Partial Class frmUpdateDepartment
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnUpdate As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtChange As TextBox
     Friend WithEvents errorProvider As ErrorProvider
+    Friend WithEvents txtDescription As TextBox
+    Friend WithEvents Label3 As Label
 End Class

@@ -183,8 +183,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryManagementSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InventoryManagementSystemDataSet.vb">
+      <DependentUpon>InventoryManagementSystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Item_Maintenance\Department.vb" />
     <Compile Include="Item_Maintenance\Item.vb" />
+    <Compile Include="Item_Maintenance\Receiving.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

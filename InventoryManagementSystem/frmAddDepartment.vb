@@ -2,6 +2,9 @@
 Option Strict On
 
 Public Class frmAddDepartment
+
+    Private mDept As New Department
+
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
@@ -25,5 +28,13 @@ Public Class frmAddDepartment
     Private Sub frmAddDepartment_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         'Close form when inactive
         Me.Close()
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim dept As Integer = CInt(txtAddDepartment.Text)
+        Dim deptName As String = txtDepartmentName.Text
+
+        mDept.Insert(dept, deptName)
+
     End Sub
 End Class

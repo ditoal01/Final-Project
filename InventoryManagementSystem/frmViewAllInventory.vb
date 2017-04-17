@@ -5,6 +5,8 @@ Public Class frmViewAllInventory
 
     Private selectedItem As String
     Private mDept As New Department
+    Private mItems As New Item
+    Private formLoading As Boolean = True
 
     Private Sub btnViewItem_Click(sender As Object, e As EventArgs) Handles btnViewItem.Click
 
@@ -55,12 +57,15 @@ Public Class frmViewAllInventory
     End Sub
 
     Private Sub frmViewAllInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim mItems As New Item
+
+
         dgvDepartment.DataSource = mItems.Items
         selectedItem = dgvDepartment.Item(0, 0).Value.ToString
         cboDepartment.DataSource = mDept.Dept()
         cboDepartment.DisplayMember = "dept"
         cboDepartment.ValueMember = "dept"
+
+        formLoading = False
 
     End Sub
 
@@ -69,5 +74,13 @@ Public Class frmViewAllInventory
         i = e.RowIndex
 
         selectedItem = dgvDepartment.Item(0, i).Value.ToString
+    End Sub
+
+    Private Sub cboDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboDepartment.SelectedIndexChanged
+        If Not formLoading Then
+            Dim custId As Short = CShort(cboDepartment.SelectedValue)
+            dgvDepartment.DataSource = mItems.GetDept(custId)
+        End If
+
     End Sub
 End Class

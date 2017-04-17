@@ -23,15 +23,16 @@ Partial Class frmAddInventory
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtOnOrder = New System.Windows.Forms.TextBox()
         Me.ckbReceived = New System.Windows.Forms.CheckBox()
         Me.txtOrderDate = New System.Windows.Forms.TextBox()
-        Me.ckbOnOrder = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
         Me.lblInventory = New System.Windows.Forms.Label()
         Me.txtSalesRate = New System.Windows.Forms.TextBox()
         Me.txtShelfTotal = New System.Windows.Forms.TextBox()
@@ -44,10 +45,10 @@ Partial Class frmAddInventory
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblItemNumber = New System.Windows.Forms.Label()
         Me.cboDepartment = New System.Windows.Forms.ComboBox()
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.txtUPCNumber = New System.Windows.Forms.TextBox()
-        Me.txtItemNumber = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -61,7 +62,6 @@ Partial Class frmAddInventory
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -69,20 +69,20 @@ Partial Class frmAddInventory
         CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnUpdate
+        'btnAdd
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(416, 432)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(120, 32)
-        Me.btnUpdate.TabIndex = 4
-        Me.btnUpdate.Text = "Add"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnAdd.Location = New System.Drawing.Point(416, 432)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(120, 32)
+        Me.btnAdd.TabIndex = 4
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.txtOnOrder)
         Me.GroupBox3.Controls.Add(Me.ckbReceived)
         Me.GroupBox3.Controls.Add(Me.txtOrderDate)
-        Me.GroupBox3.Controls.Add(Me.ckbOnOrder)
         Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.Label11)
@@ -93,6 +93,13 @@ Partial Class frmAddInventory
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Receiving Details"
+        '
+        'txtOnOrder
+        '
+        Me.txtOnOrder.Location = New System.Drawing.Point(192, 24)
+        Me.txtOnOrder.Name = "txtOnOrder"
+        Me.txtOnOrder.Size = New System.Drawing.Size(100, 20)
+        Me.txtOnOrder.TabIndex = 13
         '
         'ckbReceived
         '
@@ -106,22 +113,11 @@ Partial Class frmAddInventory
         '
         'txtOrderDate
         '
-        Me.txtOrderDate.Enabled = False
         Me.txtOrderDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOrderDate.Location = New System.Drawing.Point(192, 56)
         Me.txtOrderDate.Name = "txtOrderDate"
         Me.txtOrderDate.Size = New System.Drawing.Size(100, 20)
         Me.txtOrderDate.TabIndex = 1
-        '
-        'ckbOnOrder
-        '
-        Me.ckbOnOrder.AutoSize = True
-        Me.ckbOnOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckbOnOrder.Location = New System.Drawing.Point(232, 29)
-        Me.ckbOnOrder.Name = "ckbOnOrder"
-        Me.ckbOnOrder.Size = New System.Drawing.Size(15, 14)
-        Me.ckbOnOrder.TabIndex = 0
-        Me.ckbOnOrder.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -174,6 +170,14 @@ Partial Class frmAddInventory
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Inventory Details"
+        '
+        'txtBackroomTotal
+        '
+        Me.txtBackroomTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBackroomTotal.Location = New System.Drawing.Point(176, 192)
+        Me.txtBackroomTotal.Name = "txtBackroomTotal"
+        Me.txtBackroomTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtBackroomTotal.TabIndex = 29
         '
         'lblInventory
         '
@@ -278,10 +282,10 @@ Partial Class frmAddInventory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblItemNumber)
         Me.GroupBox1.Controls.Add(Me.cboDepartment)
         Me.GroupBox1.Controls.Add(Me.txtDescription)
         Me.GroupBox1.Controls.Add(Me.txtUPCNumber)
-        Me.GroupBox1.Controls.Add(Me.txtItemNumber)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -293,6 +297,15 @@ Partial Class frmAddInventory
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
+        '
+        'lblItemNumber
+        '
+        Me.lblItemNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblItemNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblItemNumber.Location = New System.Drawing.Point(176, 32)
+        Me.lblItemNumber.Name = "lblItemNumber"
+        Me.lblItemNumber.Size = New System.Drawing.Size(100, 20)
+        Me.lblItemNumber.TabIndex = 11
         '
         'cboDepartment
         '
@@ -318,15 +331,6 @@ Partial Class frmAddInventory
         Me.txtUPCNumber.Name = "txtUPCNumber"
         Me.txtUPCNumber.Size = New System.Drawing.Size(100, 20)
         Me.txtUPCNumber.TabIndex = 1
-        '
-        'txtItemNumber
-        '
-        Me.txtItemNumber.Enabled = False
-        Me.txtItemNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemNumber.Location = New System.Drawing.Point(176, 32)
-        Me.txtItemNumber.Name = "txtItemNumber"
-        Me.txtItemNumber.Size = New System.Drawing.Size(100, 20)
-        Me.txtItemNumber.TabIndex = 0
         '
         'Label2
         '
@@ -452,14 +456,6 @@ Partial Class frmAddInventory
         '
         Me.errorProvider.ContainerControl = Me
         '
-        'txtBackroomTotal
-        '
-        Me.txtBackroomTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBackroomTotal.Location = New System.Drawing.Point(176, 192)
-        Me.txtBackroomTotal.Name = "txtBackroomTotal"
-        Me.txtBackroomTotal.Size = New System.Drawing.Size(100, 20)
-        Me.txtBackroomTotal.TabIndex = 29
-        '
         'frmAddInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -468,7 +464,7 @@ Partial Class frmAddInventory
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -487,11 +483,10 @@ Partial Class frmAddInventory
 
     End Sub
 
-    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnAdd As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ckbReceived As CheckBox
     Friend WithEvents txtOrderDate As TextBox
-    Friend WithEvents ckbOnOrder As CheckBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
@@ -505,7 +500,6 @@ Partial Class frmAddInventory
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtDescription As TextBox
     Friend WithEvents txtUPCNumber As TextBox
-    Friend WithEvents txtItemNumber As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label8 As Label
@@ -526,4 +520,6 @@ Partial Class frmAddInventory
     Friend WithEvents lblInventory As Label
     Friend WithEvents lblMarkUp As Label
     Friend WithEvents txtBackroomTotal As TextBox
+    Friend WithEvents lblItemNumber As Label
+    Friend WithEvents txtOnOrder As TextBox
 End Class

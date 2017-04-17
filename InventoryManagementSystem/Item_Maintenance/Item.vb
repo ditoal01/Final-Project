@@ -5,7 +5,72 @@ Public Class Item
     Private adapter As New InventoryManagementSystemDataSetTableAdapters.ItemTableAdapter
     Private adapter2 As New InventoryManagementSystemDataSetTableAdapters.ItemDetailTableAdapter
     Private adapter3 As New InventoryManagementSystemDataSetTableAdapters.SaleTableAdapter
-    Public Shared Property LastError As String
+    Private frm As New frmMainInventoryForm
+
+    Public Shared Property LastStatus As String
+
+    Public Function getTotalItems() As Integer
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable
+        table = adapter.GetData
+        Return table.Count
+    End Function
+
+    Public Function getTotalPiece() As Integer
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable
+        table = adapter.GetData
+        Dim sum As Integer = Convert.ToInt32(table.Compute("SUM(inventory)", String.Empty))
+        Return sum
+    End Function
+
+    Public Function getNumberCases() As Integer
+        Dim cases As Double
+        Dim array As New ArrayList
+        Dim array2 As New ArrayList
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable = adapter.GetData
+        Dim table2 As InventoryManagementSystemDataSet.ItemDetailDataTable = adapter2.GetData
+
+        Dim row As InventoryManagementSystemDataSet.ItemRow
+        Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
+
+        For Each tRow In table.Rows
+            row = CType(tRow, InventoryManagementSystemDataSet.ItemRow)
+            array.Add(row.inventory)
+        Next
+
+        For Each tRow In table2.Rows
+            row2 = CType(tRow, InventoryManagementSystemDataSet.ItemDetailRow)
+            array2.Add(row2.casequanity)
+        Next
+
+        For i As Integer = 0 To array.Count - 1
+            Dim num1 As Integer = CInt(array.Item(i))
+            Dim num2 As Integer = CInt(array2.Item(i))
+            cases += num1 / num2
+        Next
+
+        Dim r As Double = Math.Ceiling(cases * 1)
+
+        Return CInt(r)
+    End Function
+
+    Public Function GetDept(ByVal pDept As Integer) As DataTable
+        Dim table As DataTable = adapter.GetData()
+        table.DefaultView.RowFilter = "dept = " & pDept
+        Return table
+    End Function
+
+    Public Function GetId(ByVal pDept As Integer) As Integer
+        Dim id As Integer
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable
+        table = adapter.GetDataByDept(pDept)
+        If Not table.Rows.Count = 0 Then
+            Dim tId As Integer = CInt(table.Compute("Max(Id)", Nothing))
+            id = tId + 1
+        Else
+            id = pDept * 10000 + 1
+        End If
+        Return id
+    End Function
 
     Public ReadOnly Property Items() As DataTable
         Get
@@ -20,19 +85,23 @@ Public Class Item
                            ByVal pDescription As String, ByVal pInventory As Integer, ByVal pCap As Integer,
                            ByVal pCase As Integer, ByVal pSaleRate As Integer, ByVal pShelf As Integer,
                            ByVal pBack As Integer, ByVal pSale As Decimal, ByVal pCost As Decimal) As Boolean
+
         Dim result As Boolean = False
+
         Try
             If adapter.Insert(pId, pUPC, pDept, pDescription, pInventory) > 0 And
                 adapter2.Insert(pId, pCap, pCase, pShelf, pBack, pSaleRate) > 0 And
                 adapter3.Insert(pId, pSale, pCost) > 0 Then
-                LastError = "Item added to database"
+                LastStatus = "Item added to database"
                 result = True
             Else
-                LastError = "Error Adding Item to database"
+                result = False
+                LastStatus = "Error Adding Item to database"
             End If
 
         Catch ex As Exception
-            LastError = "Exception thrown adding to database"
+            result = False
+            LastStatus = "Exception thrown adding to database"
         End Try
 
         Return result
@@ -43,15 +112,17 @@ Public Class Item
                            ByVal pDescription As String, ByVal pInventory As Integer, ByVal pCap As Integer,
                            ByVal pCase As Integer, ByVal pSaleRate As Integer, ByVal pShelf As Integer,
                            ByVal pBack As Integer, ByVal pSale As Decimal, ByVal pCost As Decimal) As Boolean
-        LastError = String.Empty
+        LastStatus = String.Empty
         Try
             adapter.Update(pId, pUPC, pDept, pDescription, pInventory)
             adapter2.Update(pId, pCap, pCase, pShelf, pBack, pSaleRate)
             adapter3.Update(pId, pSale, pCost)
+
+            LastStatus = "Item Updated"
             Return True
 
         Catch ex As Exception
-            LastError = ex.Message
+            LastStatus = ex.Message
             Return False
         End Try
     End Function

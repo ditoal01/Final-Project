@@ -2,6 +2,7 @@
 Option Strict On
 
 Public Class frmUpdateDepartment
+    Private mDept As New Department
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
@@ -11,19 +12,32 @@ Public Class frmUpdateDepartment
         dashboard.Show()
     End Sub
 
-    Private Sub txtChange_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChange.KeyPress
-        errorProvider.Clear()
-        'Enables control keys
-        If Char.IsControl(e.KeyChar) Then Exit Sub
-        'Key press for only digits
-        If Not Char.IsDigit(e.KeyChar) Then
-            e.Handled = True
-        End If
-        txtChange.MaxLength = 2
-    End Sub
-
     Private Sub frmUpdateDepartment_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         'Close form when inactive
         Me.Close()
     End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim dept = CInt(cboSelectDepartment.SelectedValue.ToString)
+        'Dim newDept = CInt(txtChange.Text)
+        Dim description = txtDescription.Text
+
+        If mDept.Update(dept, description) Then
+        Else
+            'Item.LastError = "Cannot update department"
+        End If
+
+    End Sub
+
+    Private Sub frmUpdateDepartment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        With cboSelectDepartment
+            .DataSource = mDept.Dept()
+            .DisplayMember = "dept"
+            .ValueMember = "dept"
+            .DropDownStyle = ComboBoxStyle.DropDownList
+            .SelectedIndex = -1
+        End With
+    End Sub
+
 End Class

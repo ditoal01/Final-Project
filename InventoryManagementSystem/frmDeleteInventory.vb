@@ -3,6 +3,8 @@ Option Strict On
 
 Public Class frmDeleteInventory
     Private mItems As New Item
+    Private frm As New frmMainInventoryForm
+
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
     End Sub
@@ -33,9 +35,17 @@ Public Class frmDeleteInventory
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+
+        If txtLookup.Text = String.Empty Then
+            errorProvider.SetError(txtLookup, txtLookup.Name.ToString & " is empty")
+            Exit Sub
+        End If
+
         Dim id As Integer
         id = CInt(txtLookup.Text)
         search(id)
+
+
     End Sub
 
     Private Function search(ByVal pId As Integer) As Boolean
@@ -76,16 +86,21 @@ Public Class frmDeleteInventory
 
 
         If mItems.Delete(CInt(lblItemNumber.Text)) Then
-            ' clear()
+            clear()
+            mItems.LastStatus = " Item deleted"
         Else
-            MessageBox.Show("Unable to delete the item")
+
+            mItems.LastStatus = "Unable to delete the item"
         End If
+        frm.UpdateStatus(mItems.LastStatus)
     End Sub
 
     Private Sub clear()
         For Each grp As GroupBox In Controls.OfType(Of GroupBox)
             For Each lbl As Label In grp.Controls.OfType(Of Label)
-                lbl.Text = String.Empty
+                If lbl.Name.Contains("lbl") Then
+                    lbl.Text = String.Empty
+                End If
             Next
         Next
         txtLookup.Clear()

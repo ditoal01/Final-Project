@@ -51,10 +51,16 @@ Partial Class frmReceiving
         '
         'dgvReceiveItems
         '
+        Me.dgvReceiveItems.AllowUserToAddRows = False
+        Me.dgvReceiveItems.AllowUserToDeleteRows = False
+        Me.dgvReceiveItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReceiveItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReceiveItems.Location = New System.Drawing.Point(454, 68)
         Me.dgvReceiveItems.Name = "dgvReceiveItems"
-        Me.dgvReceiveItems.Size = New System.Drawing.Size(260, 290)
+        Me.dgvReceiveItems.ReadOnly = True
+        Me.dgvReceiveItems.RowHeadersVisible = False
+        Me.dgvReceiveItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvReceiveItems.Size = New System.Drawing.Size(314, 290)
         Me.dgvReceiveItems.TabIndex = 0
         Me.dgvReceiveItems.TabStop = False
         '

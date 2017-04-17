@@ -15,4 +15,9 @@ Public Class frmViewDepartments
         'Close form when inactive
         Me.Close()
     End Sub
+
+    Private Sub frmViewDepartments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim mDepartments As New Department
+        dgvDepartmentList.DataSource = mDepartments.Dept
+    End Sub
 End Class

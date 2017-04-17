@@ -24,13 +24,14 @@ Partial Class frmUpdateInventory
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lblDate = New System.Windows.Forms.Label()
+        Me.lblOnOrder = New System.Windows.Forms.Label()
         Me.chkReady = New System.Windows.Forms.CheckBox()
-        Me.txtReceive = New System.Windows.Forms.TextBox()
-        Me.chkOnOrder = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblInventory = New System.Windows.Forms.Label()
         Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
         Me.txtShelfTotal = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -43,10 +44,10 @@ Partial Class frmUpdateInventory
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblItemNumber = New System.Windows.Forms.Label()
         Me.cboDepartment = New System.Windows.Forms.ComboBox()
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.txtUPCNumber = New System.Windows.Forms.TextBox()
-        Me.txtItemNumber = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -57,14 +58,13 @@ Partial Class frmUpdateInventory
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.lblMarkUp = New System.Windows.Forms.Label()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.txtSalePrice = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.lblInventory = New System.Windows.Forms.Label()
-        Me.lblMarkUp = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -74,9 +74,9 @@ Partial Class frmUpdateInventory
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.lblDate)
+        Me.GroupBox3.Controls.Add(Me.lblOnOrder)
         Me.GroupBox3.Controls.Add(Me.chkReady)
-        Me.GroupBox3.Controls.Add(Me.txtReceive)
-        Me.GroupBox3.Controls.Add(Me.chkOnOrder)
         Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.Label11)
@@ -89,34 +89,34 @@ Partial Class frmUpdateInventory
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Receiving Details"
         '
+        'lblDate
+        '
+        Me.lblDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDate.Location = New System.Drawing.Point(192, 56)
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(100, 20)
+        Me.lblDate.TabIndex = 14
+        '
+        'lblOnOrder
+        '
+        Me.lblOnOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblOnOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOnOrder.Location = New System.Drawing.Point(192, 24)
+        Me.lblOnOrder.Name = "lblOnOrder"
+        Me.lblOnOrder.Size = New System.Drawing.Size(100, 20)
+        Me.lblOnOrder.TabIndex = 13
+        '
         'chkReady
         '
         Me.chkReady.AutoSize = True
+        Me.chkReady.Enabled = False
         Me.chkReady.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkReady.Location = New System.Drawing.Point(232, 90)
         Me.chkReady.Name = "chkReady"
         Me.chkReady.Size = New System.Drawing.Size(15, 14)
         Me.chkReady.TabIndex = 2
         Me.chkReady.UseVisualStyleBackColor = True
-        '
-        'txtReceive
-        '
-        Me.txtReceive.Enabled = False
-        Me.txtReceive.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReceive.Location = New System.Drawing.Point(192, 56)
-        Me.txtReceive.Name = "txtReceive"
-        Me.txtReceive.Size = New System.Drawing.Size(100, 20)
-        Me.txtReceive.TabIndex = 1
-        '
-        'chkOnOrder
-        '
-        Me.chkOnOrder.AutoSize = True
-        Me.chkOnOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkOnOrder.Location = New System.Drawing.Point(232, 29)
-        Me.chkOnOrder.Name = "chkOnOrder"
-        Me.chkOnOrder.Size = New System.Drawing.Size(15, 14)
-        Me.chkOnOrder.TabIndex = 0
-        Me.chkOnOrder.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -170,6 +170,15 @@ Partial Class frmUpdateInventory
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Inventory Details"
+        '
+        'lblInventory
+        '
+        Me.lblInventory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInventory.Location = New System.Drawing.Point(176, 32)
+        Me.lblInventory.Name = "lblInventory"
+        Me.lblInventory.Size = New System.Drawing.Size(100, 20)
+        Me.lblInventory.TabIndex = 18
         '
         'txtBackroomTotal
         '
@@ -273,10 +282,10 @@ Partial Class frmUpdateInventory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblItemNumber)
         Me.GroupBox1.Controls.Add(Me.cboDepartment)
         Me.GroupBox1.Controls.Add(Me.txtDescription)
         Me.GroupBox1.Controls.Add(Me.txtUPCNumber)
-        Me.GroupBox1.Controls.Add(Me.txtItemNumber)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -289,6 +298,15 @@ Partial Class frmUpdateInventory
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
+        '
+        'lblItemNumber
+        '
+        Me.lblItemNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblItemNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblItemNumber.Location = New System.Drawing.Point(176, 32)
+        Me.lblItemNumber.Name = "lblItemNumber"
+        Me.lblItemNumber.Size = New System.Drawing.Size(100, 20)
+        Me.lblItemNumber.TabIndex = 11
         '
         'cboDepartment
         '
@@ -314,14 +332,6 @@ Partial Class frmUpdateInventory
         Me.txtUPCNumber.Name = "txtUPCNumber"
         Me.txtUPCNumber.Size = New System.Drawing.Size(100, 20)
         Me.txtUPCNumber.TabIndex = 1
-        '
-        'txtItemNumber
-        '
-        Me.txtItemNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemNumber.Location = New System.Drawing.Point(176, 32)
-        Me.txtItemNumber.Name = "txtItemNumber"
-        Me.txtItemNumber.Size = New System.Drawing.Size(100, 20)
-        Me.txtItemNumber.TabIndex = 0
         '
         'Label2
         '
@@ -423,6 +433,15 @@ Partial Class frmUpdateInventory
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Sales Details"
         '
+        'lblMarkUp
+        '
+        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
+        Me.lblMarkUp.Name = "lblMarkUp"
+        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
+        Me.lblMarkUp.TabIndex = 18
+        '
         'txtCost
         '
         Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -473,29 +492,11 @@ Partial Class frmUpdateInventory
         '
         Me.errorProvider.ContainerControl = Me
         '
-        'lblInventory
-        '
-        Me.lblInventory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInventory.Location = New System.Drawing.Point(176, 32)
-        Me.lblInventory.Name = "lblInventory"
-        Me.lblInventory.Size = New System.Drawing.Size(100, 20)
-        Me.lblInventory.TabIndex = 18
-        '
-        'lblMarkUp
-        '
-        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
-        Me.lblMarkUp.Name = "lblMarkUp"
-        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
-        Me.lblMarkUp.TabIndex = 18
-        '
         'frmUpdateInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(806, 495)
+        Me.ClientSize = New System.Drawing.Size(815, 495)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnCancel)
@@ -523,9 +524,6 @@ Partial Class frmUpdateInventory
     End Sub
 
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents chkReady As CheckBox
-    Friend WithEvents txtReceive As TextBox
-    Friend WithEvents chkOnOrder As CheckBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
@@ -540,7 +538,6 @@ Partial Class frmUpdateInventory
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtDescription As TextBox
     Friend WithEvents txtUPCNumber As TextBox
-    Friend WithEvents txtItemNumber As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label8 As Label
@@ -564,4 +561,8 @@ Partial Class frmUpdateInventory
     Friend WithEvents errorProvider As ErrorProvider
     Friend WithEvents lblInventory As Label
     Friend WithEvents lblMarkUp As Label
+    Friend WithEvents lblItemNumber As Label
+    Friend WithEvents lblDate As Label
+    Friend WithEvents lblOnOrder As Label
+    Friend WithEvents chkReady As CheckBox
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class frmMainInventoryForm
+    Public Shared Property LastError As String
 
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
         Me.Close()
@@ -13,6 +14,9 @@
     End Sub
 
     Private Sub frmMainInventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        lblStatus.Text = "Welcome to Inventory Management System"
+
         Dim dashboard As New frmDashboard()
         dashboard.MdiParent = Me
         dashboard.WindowState = FormWindowState.Maximized
@@ -116,4 +120,13 @@
         orderForm.WindowState = FormWindowState.Maximized
         orderForm.Show()
     End Sub
+
+    Public Sub clearStatus()
+        lblStatus.Text = String.Empty
+    End Sub
+
+    Public Sub UpdateStatus(ByVal pStatus As String)
+        lblStatus.Text = pStatus
+    End Sub
+
 End Class
