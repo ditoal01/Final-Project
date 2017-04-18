@@ -60,9 +60,15 @@ Partial Class frmReplenish
         '
         'dgvReplenish
         '
+        Me.dgvReplenish.AllowUserToAddRows = False
+        Me.dgvReplenish.AllowUserToDeleteRows = False
+        Me.dgvReplenish.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReplenish.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReplenish.Location = New System.Drawing.Point(424, 40)
         Me.dgvReplenish.Name = "dgvReplenish"
+        Me.dgvReplenish.ReadOnly = True
+        Me.dgvReplenish.RowHeadersVisible = False
+        Me.dgvReplenish.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReplenish.Size = New System.Drawing.Size(320, 344)
         Me.dgvReplenish.TabIndex = 0
         Me.dgvReplenish.TabStop = False

@@ -85,6 +85,7 @@ Partial Class frmDashboard
         Me.lblReceivePiece.Name = "lblReceivePiece"
         Me.lblReceivePiece.Size = New System.Drawing.Size(100, 20)
         Me.lblReceivePiece.TabIndex = 20
+        Me.lblReceivePiece.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblReceiveCase
         '
@@ -94,6 +95,7 @@ Partial Class frmDashboard
         Me.lblReceiveCase.Name = "lblReceiveCase"
         Me.lblReceiveCase.Size = New System.Drawing.Size(100, 20)
         Me.lblReceiveCase.TabIndex = 19
+        Me.lblReceiveCase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
@@ -113,6 +115,7 @@ Partial Class frmDashboard
         Me.lblReceiveItem.Name = "lblReceiveItem"
         Me.lblReceiveItem.Size = New System.Drawing.Size(100, 20)
         Me.lblReceiveItem.TabIndex = 18
+        Me.lblReceiveItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
@@ -158,6 +161,7 @@ Partial Class frmDashboard
         Me.lblTotalNumberPieces.Name = "lblTotalNumberPieces"
         Me.lblTotalNumberPieces.Size = New System.Drawing.Size(100, 20)
         Me.lblTotalNumberPieces.TabIndex = 20
+        Me.lblTotalNumberPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblTotalNumberCases
         '
@@ -167,6 +171,7 @@ Partial Class frmDashboard
         Me.lblTotalNumberCases.Name = "lblTotalNumberCases"
         Me.lblTotalNumberCases.Size = New System.Drawing.Size(100, 20)
         Me.lblTotalNumberCases.TabIndex = 19
+        Me.lblTotalNumberCases.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label4
         '
@@ -186,6 +191,7 @@ Partial Class frmDashboard
         Me.lblTotalNumberItem.Name = "lblTotalNumberItem"
         Me.lblTotalNumberItem.Size = New System.Drawing.Size(100, 20)
         Me.lblTotalNumberItem.TabIndex = 18
+        Me.lblTotalNumberItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
         '
@@ -231,6 +237,7 @@ Partial Class frmDashboard
         Me.lblOverstock.Name = "lblOverstock"
         Me.lblOverstock.Size = New System.Drawing.Size(100, 20)
         Me.lblOverstock.TabIndex = 20
+        Me.lblOverstock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblOutOfStock
         '
@@ -240,6 +247,7 @@ Partial Class frmDashboard
         Me.lblOutOfStock.Name = "lblOutOfStock"
         Me.lblOutOfStock.Size = New System.Drawing.Size(100, 20)
         Me.lblOutOfStock.TabIndex = 19
+        Me.lblOutOfStock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label15
         '
@@ -259,6 +267,7 @@ Partial Class frmDashboard
         Me.lblReplenish.Name = "lblReplenish"
         Me.lblReplenish.Size = New System.Drawing.Size(100, 20)
         Me.lblReplenish.TabIndex = 18
+        Me.lblReplenish.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label17
         '

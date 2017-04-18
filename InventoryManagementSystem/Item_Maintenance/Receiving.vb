@@ -1,7 +1,9 @@
 ﻿Public Class Receiving
     Private adapter As New InventoryManagementSystemDataSetTableAdapters.ReceivingTableAdapter
+    Private adapterId As New InventoryManagementSystemDataSetTableAdapters.ItemTableAdapter
     Private adapterItem As New InventoryManagementSystemDataSetTableAdapters.ItemDetailTableAdapter
     Private mItems As New Item
+    Public Shared Property LastError As String
 
     Public ReadOnly Property receive As DataTable
         Get
@@ -9,7 +11,55 @@
         End Get
     End Property
 
-    Public Function FindByDeptId(ByVal pReceiveId) As InventoryManagementSystemDataSet.ReceivingRow
+    Public Function getTotalItems() As Integer
+        Dim table As InventoryManagementSystemDataSet.ReceivingDataTable
+        table = adapter.GetData
+        Return table.Count
+    End Function
+
+    Public Function getTotalPiece() As Integer
+        Dim sum As Integer = 0
+        Dim table As InventoryManagementSystemDataSet.ReceivingDataTable
+        table = adapter.GetData
+        If table.Count > 0 And table IsNot Nothing Then
+            sum = Convert.ToInt32(table.Compute("SUM(OnOrder)", String.Empty))
+        End If
+
+        Return sum
+    End Function
+
+    Public Function getNumberCases() As Integer
+        Dim cases As Double
+        Dim array As New ArrayList
+        Dim array2 As New ArrayList
+        Dim table As InventoryManagementSystemDataSet.ReceivingDataTable = adapter.GetData
+        Dim table2 As InventoryManagementSystemDataSet.ItemDetailDataTable = adapterItem.GetData
+
+        Dim row As InventoryManagementSystemDataSet.ReceivingRow
+        Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
+
+        For Each tRow In table.Rows
+            row = CType(tRow, InventoryManagementSystemDataSet.ReceivingRow)
+            array.Add(row.OnOrder)
+        Next
+
+        For Each tRow In table2.Rows
+            row2 = CType(tRow, InventoryManagementSystemDataSet.ItemDetailRow)
+            array2.Add(row2.casequanity)
+        Next
+
+        For i As Integer = 0 To array.Count - 1
+            Dim num1 As Integer = CInt(array.Item(i))
+            Dim num2 As Integer = CInt(array2.Item(i))
+            cases += num1 / num2
+        Next
+
+        Dim r As Double = Math.Ceiling(cases * 1)
+
+        Return CInt(r)
+    End Function
+
+    Public Function FindById(ByVal pReceiveId) As InventoryManagementSystemDataSet.ReceivingRow
         Dim table As InventoryManagementSystemDataSet.ReceivingDataTable
         table = adapter.GetData()
         Return table.FindById(pReceiveId)
@@ -20,7 +70,7 @@
         Try
             rowsAffected = adapter.Delete(pReceiveId)
         Catch ex As Exception
-            MessageBox.Show(ex.Message & ", items in department")
+            LastError = ex.Message
         End Try
 
         Return rowsAffected > 0
@@ -36,9 +86,10 @@
             Dim total As Integer = row.invshelf + row.invback
             If (total < (row.rate * 2)) Then
                 Try
-                    adapter.Insert(row.Id, row.casequanity, 0)
+                    Dim numberOfCases As Integer = (row.rate * 2) / total
+                    adapter.Insert(row.Id, (row.casequanity * numberOfCases), 0)
                 Catch ex As Exception
-                    MessageBox.Show(ex.Message & ", Unable to create orders")
+                    LastError = ex.Message & ", Unable to create orders"
                 End Try
             End If
         Next

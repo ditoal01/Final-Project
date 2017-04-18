@@ -108,7 +108,17 @@ Public Class Item
 
     End Function
 
-    Public Function Update(ByVal pId As Integer, ByVal pUPC As String, ByVal pDept As Integer,
+    Public Function UpdateDetail(ByVal pRow As DataRow) As Boolean
+        adapter2.Update(pRow)
+        Return True
+    End Function
+
+    Public Overloads Function Udpate(ByVal pRow As DataRow) As Boolean
+        adapter.Update(pRow)
+        Return True
+    End Function
+
+    Public Overloads Function Update(ByVal pId As Integer, ByVal pUPC As String, ByVal pDept As Integer,
                            ByVal pDescription As String, ByVal pInventory As Integer, ByVal pCap As Integer,
                            ByVal pCase As Integer, ByVal pSaleRate As Integer, ByVal pShelf As Integer,
                            ByVal pBack As Integer, ByVal pSale As Decimal, ByVal pCost As Decimal) As Boolean

@@ -189,6 +189,7 @@
     <Compile Include="Item_Maintenance\Department.vb" />
     <Compile Include="Item_Maintenance\Item.vb" />
     <Compile Include="Item_Maintenance\Receiving.vb" />
+    <Compile Include="Item_Maintenance\Replenish.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

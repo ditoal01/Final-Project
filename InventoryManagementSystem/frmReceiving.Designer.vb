@@ -56,6 +56,7 @@ Partial Class frmReceiving
         Me.dgvReceiveItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReceiveItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReceiveItems.Location = New System.Drawing.Point(454, 68)
+        Me.dgvReceiveItems.MultiSelect = False
         Me.dgvReceiveItems.Name = "dgvReceiveItems"
         Me.dgvReceiveItems.ReadOnly = True
         Me.dgvReceiveItems.RowHeadersVisible = False
