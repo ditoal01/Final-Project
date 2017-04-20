@@ -4,8 +4,9 @@ Option Strict On
 Public Class frmViewInventory
 
     Private mItems As New Item
+    Private mReceive As New Receiving
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         Dim dashboard As New frmDashboard
         'Set dashboard MDI parent to parent form
@@ -51,6 +52,7 @@ Public Class frmViewInventory
         Dim row As InventoryManagementSystemDataSet.ItemRow
         Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
         Dim row3 As InventoryManagementSystemDataSet.SaleRow
+        Dim row4 As InventoryManagementSystemDataSet.ReceivingRow
 
         row = mItems.FindItem(pId)
         lblItemNumber.Text = row.Id.ToString
@@ -70,6 +72,15 @@ Public Class frmViewInventory
         lblSalePrice.Text = row3.price.ToString("c")
         lblCost.Text = row3.cost.ToString("c")
         lblMarkUp.Text = mItems.Markup(row3.price, row3.cost).ToString("P")
+
+        row4 = mReceive.FindById(pId)
+        If row4 IsNot Nothing Then
+            lblOnOrder.Text = row4.OnOrder.ToString()
+            lblOrderDate.Text = row4.receivingDate.ToString("d")
+            lblReceived.Text = row4.ready.ToString()
+        End If
+
+
 
         Return True
 

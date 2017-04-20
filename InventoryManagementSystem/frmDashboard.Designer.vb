@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmDashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,9 @@ Partial Class frmDashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.lstExceptions = New System.Windows.Forms.ListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lblReceivePiece = New System.Windows.Forms.Label()
         Me.lblReceiveCase = New System.Windows.Forms.Label()
@@ -47,19 +46,12 @@ Partial Class frmDashboard
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.lstExceptions = New System.Windows.Forms.ListView()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lstExceptions
-        '
-        Me.lstExceptions.FormattingEnabled = True
-        Me.lstExceptions.Location = New System.Drawing.Point(336, 88)
-        Me.lstExceptions.Name = "lstExceptions"
-        Me.lstExceptions.Size = New System.Drawing.Size(439, 381)
-        Me.lstExceptions.TabIndex = 0
         '
         'GroupBox2
         '
@@ -302,17 +294,28 @@ Partial Class frmDashboard
         '
         Me.errorProvider.ContainerControl = Me
         '
+        'lstExceptions
+        '
+        Me.lstExceptions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.lstExceptions.Location = New System.Drawing.Point(352, 88)
+        Me.lstExceptions.MultiSelect = False
+        Me.lstExceptions.Name = "lstExceptions"
+        Me.lstExceptions.Size = New System.Drawing.Size(440, 384)
+        Me.lstExceptions.TabIndex = 23
+        Me.lstExceptions.UseCompatibleStateImageBehavior = False
+        Me.lstExceptions.View = System.Windows.Forms.View.Details
+        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(835, 570)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lstExceptions)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.lstExceptions)
         Me.Name = "frmDashboard"
         Me.Text = "DashBoard"
         Me.GroupBox2.ResumeLayout(False)
@@ -326,8 +329,6 @@ Partial Class frmDashboard
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lstExceptions As ListBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents lblReceivePiece As Label
     Friend WithEvents lblReceiveCase As Label
@@ -351,4 +352,5 @@ Partial Class frmDashboard
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents errorProvider As ErrorProvider
+    Friend WithEvents lstExceptions As ListView
 End Class

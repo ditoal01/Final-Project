@@ -24,13 +24,6 @@ Partial Class frmAddInventory
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtOnOrder = New System.Windows.Forms.TextBox()
-        Me.ckbReceived = New System.Windows.Forms.CheckBox()
-        Me.txtOrderDate = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
         Me.lblInventory = New System.Windows.Forms.Label()
@@ -54,19 +47,18 @@ Partial Class frmAddInventory
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.lblMarkUp = New System.Windows.Forms.Label()
-        Me.txtCost = New System.Windows.Forms.TextBox()
-        Me.txtSalePrice = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.GroupBox3.SuspendLayout()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtSalePrice = New System.Windows.Forms.TextBox()
+        Me.txtCost = New System.Windows.Forms.TextBox()
+        Me.lblMarkUp = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnAdd
@@ -77,77 +69,6 @@ Partial Class frmAddInventory
         Me.btnAdd.TabIndex = 4
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.txtOnOrder)
-        Me.GroupBox3.Controls.Add(Me.ckbReceived)
-        Me.GroupBox3.Controls.Add(Me.txtOrderDate)
-        Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Controls.Add(Me.Label10)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(424, 32)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(323, 119)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Receiving Details"
-        '
-        'txtOnOrder
-        '
-        Me.txtOnOrder.Location = New System.Drawing.Point(192, 24)
-        Me.txtOnOrder.Name = "txtOnOrder"
-        Me.txtOnOrder.Size = New System.Drawing.Size(100, 20)
-        Me.txtOnOrder.TabIndex = 13
-        '
-        'ckbReceived
-        '
-        Me.ckbReceived.AutoSize = True
-        Me.ckbReceived.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckbReceived.Location = New System.Drawing.Point(232, 90)
-        Me.ckbReceived.Name = "ckbReceived"
-        Me.ckbReceived.Size = New System.Drawing.Size(15, 14)
-        Me.ckbReceived.TabIndex = 2
-        Me.ckbReceived.UseVisualStyleBackColor = True
-        '
-        'txtOrderDate
-        '
-        Me.txtOrderDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOrderDate.Location = New System.Drawing.Point(192, 56)
-        Me.txtOrderDate.Name = "txtOrderDate"
-        Me.txtOrderDate.Size = New System.Drawing.Size(100, 20)
-        Me.txtOrderDate.TabIndex = 1
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(32, 32)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(53, 13)
-        Me.Label9.TabIndex = 10
-        Me.Label9.Text = "On Order:"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(32, 64)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(111, 13)
-        Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Order Recieved Date:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(32, 96)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(118, 13)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Ready to Be Received:"
         '
         'GroupBox2
         '
@@ -381,66 +302,9 @@ Partial Class frmAddInventory
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'GroupBox4
+        'errorProvider
         '
-        Me.GroupBox4.Controls.Add(Me.lblMarkUp)
-        Me.GroupBox4.Controls.Add(Me.txtCost)
-        Me.GroupBox4.Controls.Add(Me.txtSalePrice)
-        Me.GroupBox4.Controls.Add(Me.Label18)
-        Me.GroupBox4.Controls.Add(Me.Label19)
-        Me.GroupBox4.Controls.Add(Me.Label20)
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(424, 208)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(323, 142)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Sales Details"
-        '
-        'lblMarkUp
-        '
-        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
-        Me.lblMarkUp.Name = "lblMarkUp"
-        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
-        Me.lblMarkUp.TabIndex = 16
-        '
-        'txtCost
-        '
-        Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCost.Location = New System.Drawing.Point(192, 64)
-        Me.txtCost.Name = "txtCost"
-        Me.txtCost.Size = New System.Drawing.Size(100, 20)
-        Me.txtCost.TabIndex = 1
-        '
-        'txtSalePrice
-        '
-        Me.txtSalePrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSalePrice.Location = New System.Drawing.Point(192, 32)
-        Me.txtSalePrice.Name = "txtSalePrice"
-        Me.txtSalePrice.Size = New System.Drawing.Size(100, 20)
-        Me.txtSalePrice.TabIndex = 0
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(32, 32)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(61, 13)
-        Me.Label18.TabIndex = 10
-        Me.Label18.Text = "Sale  Price:"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(32, 64)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(31, 13)
-        Me.Label19.TabIndex = 11
-        Me.Label19.Text = "Cost:"
+        Me.errorProvider.ContainerControl = Me
         '
         'Label20
         '
@@ -452,9 +316,66 @@ Partial Class frmAddInventory
         Me.Label20.TabIndex = 12
         Me.Label20.Text = "Mark up:"
         '
-        'errorProvider
+        'Label19
         '
-        Me.errorProvider.ContainerControl = Me
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(32, 64)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(31, 13)
+        Me.Label19.TabIndex = 11
+        Me.Label19.Text = "Cost:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(32, 32)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(61, 13)
+        Me.Label18.TabIndex = 10
+        Me.Label18.Text = "Sale  Price:"
+        '
+        'txtSalePrice
+        '
+        Me.txtSalePrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSalePrice.Location = New System.Drawing.Point(192, 32)
+        Me.txtSalePrice.Name = "txtSalePrice"
+        Me.txtSalePrice.Size = New System.Drawing.Size(100, 20)
+        Me.txtSalePrice.TabIndex = 0
+        '
+        'txtCost
+        '
+        Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCost.Location = New System.Drawing.Point(192, 64)
+        Me.txtCost.Name = "txtCost"
+        Me.txtCost.Size = New System.Drawing.Size(100, 20)
+        Me.txtCost.TabIndex = 1
+        '
+        'lblMarkUp
+        '
+        Me.lblMarkUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblMarkUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMarkUp.Location = New System.Drawing.Point(192, 96)
+        Me.lblMarkUp.Name = "lblMarkUp"
+        Me.lblMarkUp.Size = New System.Drawing.Size(100, 20)
+        Me.lblMarkUp.TabIndex = 16
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.lblMarkUp)
+        Me.GroupBox4.Controls.Add(Me.txtCost)
+        Me.GroupBox4.Controls.Add(Me.txtSalePrice)
+        Me.GroupBox4.Controls.Add(Me.Label18)
+        Me.GroupBox4.Controls.Add(Me.Label19)
+        Me.GroupBox4.Controls.Add(Me.Label20)
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.Location = New System.Drawing.Point(424, 32)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(323, 142)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Sales Details"
         '
         'frmAddInventory
         '
@@ -465,31 +386,22 @@ Partial Class frmAddInventory
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmAddInventory"
         Me.Text = "Add Item"
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents btnAdd As Button
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents ckbReceived As CheckBox
-    Friend WithEvents txtOrderDate As TextBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtCaseQuanity As TextBox
     Friend WithEvents txtShelfCap As TextBox
@@ -510,16 +422,15 @@ Partial Class frmAddInventory
     Friend WithEvents Label13 As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents cboDepartment As ComboBox
+    Friend WithEvents errorProvider As ErrorProvider
+    Friend WithEvents lblInventory As Label
+    Friend WithEvents txtBackroomTotal As TextBox
+    Friend WithEvents lblItemNumber As Label
     Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents lblMarkUp As Label
     Friend WithEvents txtCost As TextBox
     Friend WithEvents txtSalePrice As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
-    Friend WithEvents errorProvider As ErrorProvider
-    Friend WithEvents lblInventory As Label
-    Friend WithEvents lblMarkUp As Label
-    Friend WithEvents txtBackroomTotal As TextBox
-    Friend WithEvents lblItemNumber As Label
-    Friend WithEvents txtOnOrder As TextBox
 End Class

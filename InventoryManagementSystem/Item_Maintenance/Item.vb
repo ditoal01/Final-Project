@@ -177,5 +177,90 @@ Public Class Item
         Return rowUPC
     End Function
 
+    Public Function updateDashboard() As ArrayList
+        Dim table As InventoryManagementSystemDataSet.ItemDataTable = adapter.GetData()
+        Dim rowItem As InventoryManagementSystemDataSet.ItemDetailRow
+        Dim rowReceive As InventoryManagementSystemDataSet.ReceivingRow
+        Dim row As InventoryManagementSystemDataSet.ItemRow
+        Dim array As New ArrayList
+        Dim list As New ListViewItem()
+        Dim fill As Char = " "c
+        Dim check As Boolean = True
+
+        For Each tRow In table.Rows
+            row = CType(tRow, InventoryManagementSystemDataSet.ItemRow)
+            If row.inventory = 0 Then
+                If check Then
+                    array.Add("Out of Stock")
+                    array.Add("")
+                    array.Add("")
+                    array.Add("")
+                    array.Add("Item Number")
+                    array.Add("UPC")
+                    array.Add("Description")
+                    array.Add("Inventory")
+                    check = False
+                End If
+                array.Add(row.Id.ToString)
+                array.Add(row.upc)
+                array.Add(row.description)
+                array.Add(row.inventory.ToString)
+            End If
+        Next
+        check = True
+        For Each tRow In table.Rows
+            If check Then
+                array.Add("Overstock:")
+                array.Add("")
+                array.Add("")
+                array.Add("")
+                array.Add("Item Number")
+                array.Add("Shelf Stock")
+                array.Add("Description")
+                array.Add("Shelf Cap")
+                check = False
+            End If
+
+            row = CType(tRow, InventoryManagementSystemDataSet.ItemRow)
+            rowItem = FindDetail(row.Id)
+            If rowItem.shelfcap < rowItem.invshelf Then
+
+                array.Add(row.Id.ToString)
+                array.Add(rowItem.invshelf.ToString)
+                array.Add(row.description)
+                array.Add(rowItem.shelfcap.ToString)
+            End If
+        Next
+
+        check = True
+        Dim receiving As New Receiving
+        For Each tRow In table.Rows
+            If check Then
+                array.Add("Receiving:")
+                array.Add("")
+                array.Add("")
+                array.Add("")
+                array.Add("Item Number")
+                array.Add("Receive")
+                array.Add("Description")
+                array.Add("On Order")
+                check = False
+            End If
+
+            row = CType(tRow, InventoryManagementSystemDataSet.ItemRow)
+            rowReceive = receiving.FindById(row.Id)
+            If rowReceive IsNot Nothing Then
+                If (rowReceive.receivingDate <= Date.Today) Then
+
+                    array.Add(row.Id.ToString)
+                    array.Add(rowReceive.receivingDate)
+                    array.Add(row.description)
+                    array.Add(rowReceive.OnOrder)
+                End If
+            End If
+        Next
+
+        Return array
+    End Function
 
 End Class

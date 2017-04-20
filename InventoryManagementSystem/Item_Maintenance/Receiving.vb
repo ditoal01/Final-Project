@@ -1,4 +1,7 @@
-﻿Public Class Receiving
+﻿Option Explicit On
+Option Strict On
+
+Public Class Receiving
     Private adapter As New InventoryManagementSystemDataSetTableAdapters.ReceivingTableAdapter
     Private adapterId As New InventoryManagementSystemDataSetTableAdapters.ItemTableAdapter
     Private adapterItem As New InventoryManagementSystemDataSetTableAdapters.ItemDetailTableAdapter
@@ -59,7 +62,7 @@
         Return CInt(r)
     End Function
 
-    Public Function FindById(ByVal pReceiveId) As InventoryManagementSystemDataSet.ReceivingRow
+    Public Function FindById(ByVal pReceiveId As Integer) As InventoryManagementSystemDataSet.ReceivingRow
         Dim table As InventoryManagementSystemDataSet.ReceivingDataTable
         table = adapter.GetData()
         Return table.FindById(pReceiveId)
@@ -79,18 +82,26 @@
     Public Sub OnOrder()
         Dim table As InventoryManagementSystemDataSet.ItemDetailDataTable = adapterItem.GetData()
         Dim row As InventoryManagementSystemDataSet.ItemDetailRow
-
+        Dim check As Boolean = False
         For Each trow In table.Rows
 
             row = CType(trow, InventoryManagementSystemDataSet.ItemDetailRow)
+
             Dim total As Integer = row.invshelf + row.invback
-            If (total < (row.rate * 2)) Then
+            If (total < (row.rate * 2)) And Not (total = 0) Then
                 Try
-                    Dim numberOfCases As Integer = (row.rate * 2) / total
-                    adapter.Insert(row.Id, (row.casequanity * numberOfCases), 0)
+                    Dim numberOfCases As Integer = CInt((row.rate * 2) / total)
+                    adapter.Insert(row.Id, (row.casequanity * numberOfCases), check)
                 Catch ex As Exception
                     LastError = ex.Message & ", Unable to create orders"
                 End Try
+            ElseIf total = 0 Then
+                Try
+                    adapter.Insert(row.Id, row.casequanity, check)
+                Catch ex As Exception
+                    LastError = ex.Message
+                End Try
+
             End If
         Next
     End Sub

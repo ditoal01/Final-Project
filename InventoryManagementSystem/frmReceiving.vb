@@ -58,7 +58,9 @@ Public Class frmReceiving
             row = mItems.FindItem(CInt(selectedItem))
             receive = mReceiving.FindById(CInt(selectedItem))
             rowDetail = mItems.FindDetail(CInt(selectedItem))
-            If receive IsNot Nothing Then
+
+            If receive IsNot Nothing And (receive.receivingDate <= Date.Today) Then
+
                 row.inventory += receive.OnOrder
                 mItems.Udpate(row)
                 rowDetail.invback += receive.OnOrder
@@ -72,6 +74,7 @@ Public Class frmReceiving
                 Else
                     selectedItem = String.Empty
                 End If
+            Else
 
             End If
         Else

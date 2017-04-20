@@ -21,12 +21,10 @@ Public Class frmReplenish
     End Sub
 
     Private Sub frmReplenish_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dgvReplenish.DataSource = mReplenish.Replenish
 
-        If dgvReplenish.RowCount > 0 Then
-            selectedItem = dgvReplenish.Item(0, 0).Value.ToString
-            Search(CInt(selectedItem))
-        End If
+        FrmLoad()
+
+
     End Sub
 
     Private Sub Search(ByVal pId As Integer)
@@ -58,4 +56,37 @@ Public Class frmReplenish
         selectedItem = dgvReplenish.Item(0, i).Value.ToString
         Search(CInt(selectedItem))
     End Sub
+
+    Private Sub btnReplenish_Click(sender As Object, e As EventArgs) Handles btnReplenish.Click
+        mReplenish.UpdateInv(selectedItem)
+        dgvReplenish.DataSource = mReplenish.Replenish
+        If dgvReplenish.RowCount >= 1 Then
+            selectedItem = dgvReplenish.Item(0, 0).Value.ToString
+            Search(CInt(selectedItem))
+        Else
+            selectedItem = String.Empty
+        End If
+        FrmLoad()
+    End Sub
+
+    Private Sub FrmLoad()
+        dgvReplenish.DataSource = mReplenish.Replenish
+
+        If dgvReplenish.RowCount > 0 Then
+            selectedItem = dgvReplenish.Item(0, 0).Value.ToString
+            Search(CInt(selectedItem))
+        Else
+            lblItemNumber.Text = String.Empty
+            lblUPCNumber.Text = String.Empty
+            lblDescription.Text = String.Empty
+            lblDepartmentNumber.Text = String.Empty
+            lblInventory.Text = String.Empty
+            lblShelfCap.Text = String.Empty
+            lblCaseQuanity.Text = String.Empty
+            lblSalesRate.Text = String.Empty
+            lblShelfTotal.Text = String.Empty
+            lblBackroomTotal.Text = String.Empty
+        End If
+    End Sub
+
 End Class
