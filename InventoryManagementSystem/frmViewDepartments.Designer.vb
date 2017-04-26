@@ -47,9 +47,11 @@ Partial Class frmViewDepartments
         Me.dgvDepartmentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDepartmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDepartmentList.Location = New System.Drawing.Point(296, 88)
+        Me.dgvDepartmentList.MultiSelect = False
         Me.dgvDepartmentList.Name = "dgvDepartmentList"
         Me.dgvDepartmentList.ReadOnly = True
         Me.dgvDepartmentList.RowHeadersVisible = False
+        Me.dgvDepartmentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvDepartmentList.Size = New System.Drawing.Size(264, 272)
         Me.dgvDepartmentList.TabIndex = 1
         Me.dgvDepartmentList.TabStop = False

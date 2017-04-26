@@ -15,8 +15,6 @@
 
     Private Sub frmMainInventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        lblStatus.Text = "Welcome to Inventory Management System"
-
         Dim dashboard As New frmDashboard()
         dashboard.MdiParent = Me
         dashboard.WindowState = FormWindowState.Maximized

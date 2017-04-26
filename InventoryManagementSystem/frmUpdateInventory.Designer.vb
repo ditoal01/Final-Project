@@ -23,13 +23,6 @@ Partial Class frmUpdateInventory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblOnOrder = New System.Windows.Forms.Label()
-        Me.chkReady = New System.Windows.Forms.CheckBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lblInventory = New System.Windows.Forms.Label()
         Me.txtBackroomTotal = New System.Windows.Forms.TextBox()
@@ -65,88 +58,11 @@ Partial Class frmUpdateInventory
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.errorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.lblDate)
-        Me.GroupBox3.Controls.Add(Me.lblOnOrder)
-        Me.GroupBox3.Controls.Add(Me.chkReady)
-        Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Controls.Add(Me.Label10)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Enabled = False
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(424, 32)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(323, 120)
-        Me.GroupBox3.TabIndex = 4
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Receiving Details"
-        '
-        'lblDate
-        '
-        Me.lblDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.Location = New System.Drawing.Point(192, 56)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(100, 20)
-        Me.lblDate.TabIndex = 14
-        '
-        'lblOnOrder
-        '
-        Me.lblOnOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblOnOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOnOrder.Location = New System.Drawing.Point(192, 24)
-        Me.lblOnOrder.Name = "lblOnOrder"
-        Me.lblOnOrder.Size = New System.Drawing.Size(100, 20)
-        Me.lblOnOrder.TabIndex = 13
-        '
-        'chkReady
-        '
-        Me.chkReady.AutoSize = True
-        Me.chkReady.Enabled = False
-        Me.chkReady.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkReady.Location = New System.Drawing.Point(232, 90)
-        Me.chkReady.Name = "chkReady"
-        Me.chkReady.Size = New System.Drawing.Size(15, 14)
-        Me.chkReady.TabIndex = 2
-        Me.chkReady.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(32, 32)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(53, 13)
-        Me.Label9.TabIndex = 10
-        Me.Label9.Text = "On Order:"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(32, 64)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(111, 13)
-        Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Order Recieved Date:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(32, 96)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(118, 13)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Ready to Be Received:"
         '
         'GroupBox2
         '
@@ -394,9 +310,9 @@ Partial Class frmUpdateInventory
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(80, 456)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 13)
+        Me.Label1.Size = New System.Drawing.Size(106, 13)
         Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Lookup UPC/Item Number"
+        Me.Label1.Text = "Lookup Item Number"
         '
         'btnUpdate
         '
@@ -426,7 +342,7 @@ Partial Class frmUpdateInventory
         Me.GroupBox4.Controls.Add(Me.Label20)
         Me.GroupBox4.Enabled = False
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(424, 208)
+        Me.GroupBox4.Location = New System.Drawing.Point(424, 32)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(323, 142)
         Me.GroupBox4.TabIndex = 5
@@ -501,7 +417,6 @@ Partial Class frmUpdateInventory
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnUpdate)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSearch)
@@ -509,8 +424,6 @@ Partial Class frmUpdateInventory
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmUpdateInventory"
         Me.Text = "Update Inventory"
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -522,11 +435,6 @@ Partial Class frmUpdateInventory
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtSalesRate As TextBox
     Friend WithEvents txtCaseQuanity As TextBox
@@ -562,7 +470,4 @@ Partial Class frmUpdateInventory
     Friend WithEvents lblInventory As Label
     Friend WithEvents lblMarkUp As Label
     Friend WithEvents lblItemNumber As Label
-    Friend WithEvents lblDate As Label
-    Friend WithEvents lblOnOrder As Label
-    Friend WithEvents chkReady As CheckBox
 End Class

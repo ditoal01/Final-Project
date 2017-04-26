@@ -76,9 +76,9 @@ Partial Class frmViewInventory
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(80, 464)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 13)
+        Me.Label1.Size = New System.Drawing.Size(106, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Lookup UPC/Item Number"
+        Me.Label1.Text = "Lookup Item Number"
         '
         'txtLookup
         '
@@ -184,7 +184,7 @@ Partial Class frmViewInventory
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 13)
         Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Order Recieved Date:"
+        Me.Label10.Text = "Order Received Date:"
         '
         'Label11
         '

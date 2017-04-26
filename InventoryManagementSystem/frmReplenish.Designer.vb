@@ -26,7 +26,6 @@ Partial Class frmReplenish
         Me.dgvReplenish = New System.Windows.Forms.DataGridView()
         Me.btnReplenish = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.cboDepartment = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblDepartmentNumber = New System.Windows.Forms.Label()
         Me.lblDescription = New System.Windows.Forms.Label()
@@ -49,7 +48,6 @@ Partial Class frmReplenish
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.errorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.dgvReplenish, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,7 +67,7 @@ Partial Class frmReplenish
         Me.dgvReplenish.ReadOnly = True
         Me.dgvReplenish.RowHeadersVisible = False
         Me.dgvReplenish.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvReplenish.Size = New System.Drawing.Size(320, 344)
+        Me.dgvReplenish.Size = New System.Drawing.Size(320, 368)
         Me.dgvReplenish.TabIndex = 0
         Me.dgvReplenish.TabStop = False
         '
@@ -90,14 +88,6 @@ Partial Class frmReplenish
         Me.btnCancel.TabIndex = 2
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'cboDepartment
-        '
-        Me.cboDepartment.FormattingEnabled = True
-        Me.cboDepartment.Location = New System.Drawing.Point(616, 408)
-        Me.cboDepartment.Name = "cboDepartment"
-        Me.cboDepartment.Size = New System.Drawing.Size(121, 21)
-        Me.cboDepartment.TabIndex = 0
         '
         'GroupBox1
         '
@@ -329,15 +319,6 @@ Partial Class frmReplenish
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Case Quanity:"
         '
-        'label1
-        '
-        Me.label1.AutoSize = True
-        Me.label1.Location = New System.Drawing.Point(456, 416)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(105, 13)
-        Me.label1.TabIndex = 17
-        Me.label1.Text = "Department Number:"
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -358,10 +339,8 @@ Partial Class frmReplenish
         Me.ClientSize = New System.Drawing.Size(768, 542)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.label1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.cboDepartment)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnReplenish)
         Me.Controls.Add(Me.dgvReplenish)
@@ -381,7 +360,6 @@ Partial Class frmReplenish
     Friend WithEvents dgvReplenish As DataGridView
     Friend WithEvents btnReplenish As Button
     Friend WithEvents btnCancel As Button
-    Friend WithEvents cboDepartment As ComboBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents lblDepartmentNumber As Label
     Friend WithEvents lblDescription As Label
@@ -404,7 +382,6 @@ Partial Class frmReplenish
     Friend WithEvents Label6 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents label1 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents errorProvider As ErrorProvider
 End Class

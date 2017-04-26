@@ -2,6 +2,7 @@
 Option Strict On
 
 Public Class frmUpdateInventory
+    'Class variables
     Private saleInventory, backInventory As Integer
     Private mItems As New Item
     Private mDept As New Department
@@ -9,6 +10,11 @@ Public Class frmUpdateInventory
     Private runSearch As Boolean = False
     Private frm As New frmMainInventoryForm
 
+    ''' <summary>
+    ''' Cancel button handler that loads dashboard
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         'Create dashboard form
         errorProvider.Clear()
@@ -19,6 +25,11 @@ Public Class frmUpdateInventory
         dashboard.Show()
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtUPCNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUPCNumber.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -27,9 +38,14 @@ Public Class frmUpdateInventory
         If Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
-        txtUPCNumber.MaxLength = 12
+        txtUPCNumber.MaxLength = 13
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtInventory_KeyPress(sender As Object, e As KeyPressEventArgs)
         errorProvider.Clear()
         'Enables control keys
@@ -40,6 +56,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtShelfCap_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtShelfCap.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -50,6 +71,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtCaseQuanity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCaseQuanity.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -60,6 +86,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtSalesRate_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSalesRate.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -70,6 +101,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtShelfTotal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtShelfTotal.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -80,6 +116,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtBackroomTotal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBackroomTotal.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -90,6 +131,11 @@ Public Class frmUpdateInventory
         End If
     End Sub
 
+    ''' <summary>
+    ''' Keypress handler that limits input for textbox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtLookup_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtLookup.KeyPress
         errorProvider.Clear()
         'Enables control keys
@@ -98,24 +144,32 @@ Public Class frmUpdateInventory
         If Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
-        txtLookup.MaxLength = 12
+        txtLookup.MaxLength = 6
     End Sub
 
+    ''' <summary>
+    ''' Close form when deactivate
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub frmUpdateInventory_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
-        mItems.LastStatus = String.Empty
-        frm.UpdateStatus(mItems.LastStatus)
         'Close form when inactive
         Me.Close()
     End Sub
 
+    ''' <summary>
+    ''' Update inventory handler
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        mItems.LastStatus = String.Empty
-
+        frm.clearStatus()
+        'Check if search is true
         If runSearch Then
             Dim total As Integer
             Dim price, cost As Decimal
             errorProvider.Clear()
-
+            'Check for empty textbox
             For Each grp As GroupBox In Controls.OfType(Of GroupBox)
                 For Each txt As TextBox In grp.Controls.OfType(Of TextBox)
                     If txt.Text = String.Empty Then
@@ -124,19 +178,19 @@ Public Class frmUpdateInventory
                     End If
                 Next
             Next
-
+            'Check if input is currency
             If Not IsNumeric(Decimal.TryParse(txtSalePrice.Text.Replace("$", ""), price)) Then
                 errorProvider.SetError(txtSalePrice, "Must be a currency value")
                 Exit Sub
 
             End If
-
+            'Check if input is currency
             If Not IsNumeric(Decimal.TryParse(txtCost.Text.Replace("$", ""), cost)) Then
                 errorProvider.SetError(txtCost, "Must be a currency value")
                 Exit Sub
 
             End If
-
+            'Check if input is empty
             If txtLookup.Text = String.Empty Then
                 errorProvider.SetError(txtLookup, txtLookup.Name.ToString & " is empty")
                 Exit Sub
@@ -148,23 +202,30 @@ Public Class frmUpdateInventory
             lblInventory.Text = total.ToString
 
             lblMarkUp.Text = mItems.Markup(price, cost).ToString("P")
-
+            'Check if item is updated
             If mItems.Update(CInt(lblItemNumber.Text), txtUPCNumber.Text, CInt(cboDepartment.SelectedValue.ToString),
                       txtDescription.Text, total, CInt(txtShelfCap.Text), CInt(txtCaseQuanity.Text),
                       CInt(txtSalesRate.Text), CInt(txtShelfTotal.Text), CInt(txtBackroomTotal.Text),
                       CDec(txtSalePrice.Text), CDec(txtCost.Text)) Then
+                frm.UpdateStatus("Item updated in database.")
             Else
 
-                mItems.LastStatus = "Cannot update the Appointment."
+                frm.UpdateStatus("Cannot update the Appointment from database.")
             End If
         Else
-            mItems.LastStatus = "No Item to search"
+            Clear()
+            frm.UpdateStatus("No Item to Update, search for item to update")
         End If
-        frm.UpdateStatus(mItems.LastStatus)
+        runSearch = False
     End Sub
 
+    ''' <summary>
+    ''' Search handler that searches for item in database
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        mItems.LastStatus = String.Empty
+        frm.clearStatus()
         Dim id As Integer
 
         If txtLookup.Text = String.Empty Then
@@ -174,26 +235,33 @@ Public Class frmUpdateInventory
 
         id = CInt(txtLookup.Text)
         If Search(id) Then
-            mItems.LastStatus = "Item Found for update"
+            frm.UpdateStatus("Item Found for update")
             runSearch = True
+            For Each grp As GroupBox In Controls.OfType(Of GroupBox)
+                grp.Enabled = True
+            Next
         Else
-            mItems.LastStatus = "Update Item could not be found"
+            Clear()
+            frm.UpdateStatus("No Item To search, please enter item number To start search.")
             runSearch = False
         End If
-        frm.UpdateStatus(mItems.LastStatus)
     End Sub
 
+    ''' <summary>
+    ''' function that searches for item in database
+    ''' </summary>
+    ''' <param name="pId">item number</param>
+    ''' <returns>item is found</returns>
     Private Function Search(ByVal pId As Integer) As Boolean
 
         Dim row As InventoryManagementSystemDataSet.ItemRow
         Dim row2 As InventoryManagementSystemDataSet.ItemDetailRow
         Dim row3 As InventoryManagementSystemDataSet.SaleRow
 
-        For Each grp As GroupBox In Controls.OfType(Of GroupBox)
-            grp.Enabled = True
-        Next
+
 
         row = mItems.FindItem(pId)
+        'update form with input
         Try
 
             lblItemNumber.Text = row.Id.ToString
@@ -215,27 +283,35 @@ Public Class frmUpdateInventory
             lblMarkUp.Text = mItems.Markup(row3.price, row3.cost).ToString("P")
 
         Catch ex As Exception
-            mItems.LastStatus = ex.Message
+            Return False
         End Try
-
-
         Return True
     End Function
 
+    ''' <summary>
+    ''' procedure that checks item number
+    ''' </summary>
+    ''' <param name="pId"></param>
     Public Sub input(ByVal pId As Integer)
         txtLookup.Text = pId.ToString
         If Search(pId) Then
-            mItems.LastStatus = "Item Found for update"
+            frm.UpdateStatus("Item Found for update")
+            For Each grp As GroupBox In Controls.OfType(Of GroupBox)
+                grp.Enabled = True
+            Next
             runSearch = True
         Else
             runSearch = False
-            mItems.LastStatus = "Update Item could not be found"
+            frm.UpdateStatus("Update Item could not be found")
         End If
-        frm.UpdateStatus(mItems.LastStatus)
     End Sub
 
+    ''' <summary>
+    ''' Form load sets frm to parent and updates form
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub frmUpdateInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mItems.LastStatus = String.Empty
 
         frm = CType(Me.ParentForm, frmMainInventoryForm)
 
@@ -248,7 +324,26 @@ Public Class frmUpdateInventory
         End With
 
         formLoading = False
-        frm.UpdateStatus(mItems.LastStatus)
+        frm.UpdateStatus("Enter item to update in database.")
+    End Sub
+
+    ''' <summary>
+    ''' Procedure that clears form
+    ''' </summary>
+    Private Sub Clear()
+        For Each grp As GroupBox In Controls.OfType(Of GroupBox)
+            grp.Enabled = False
+
+            For Each txt As TextBox In grp.Controls.OfType(Of TextBox)
+                txt.Clear()
+            Next
+            For Each lbl As Label In grp.Controls.OfType(Of Label)
+                If lbl.Name.Contains("lbl") Then
+                    lbl.Text = ""
+                End If
+            Next
+        Next
+        cboDepartment.SelectedIndex = -1
     End Sub
 
 End Class

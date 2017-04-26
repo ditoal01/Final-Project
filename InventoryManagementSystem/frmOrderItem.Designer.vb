@@ -244,7 +244,7 @@ Partial Class frmOrderItem
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 13)
         Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Order Recieved Date:"
+        Me.Label10.Text = "Order Received Date:"
         '
         'Label11
         '
